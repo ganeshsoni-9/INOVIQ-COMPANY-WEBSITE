@@ -1,4 +1,4 @@
-// Comprehensive Master Services Catalog for BizGrow / INOVIQ Global
+// Comprehensive Master Services Catalog for inoviq / INOVIQ Global
 // Featuring all 5 Main Categories & 48 Individual Specialized Services
 
 export const CATEGORIES_DATA = [

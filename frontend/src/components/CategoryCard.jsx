@@ -63,7 +63,7 @@ export const CategoryCard = ({
           {/* Bottom Title on Image */}
           <div className="absolute bottom-3 left-4 right-4">
             <span className="text-[10px] uppercase tracking-wider text-cyan-300 font-bold block mb-0.5">
-              BizGrow Domain
+              inoviq Domain
             </span>
             <h3 className="text-xl font-extrabold text-white font-['Outfit'] leading-tight group-hover:text-cyan-200 transition-colors">
               {category.title}

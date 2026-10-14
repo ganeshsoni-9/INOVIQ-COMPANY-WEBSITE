@@ -409,7 +409,7 @@ export const Home = () => {
         </div>
       </section>
 
-      {/* ================= BIZGROW CATEGORY-WISE SERVICES & WORK SECTION ================= */}
+      {/* ================= inoviq CATEGORY-WISE SERVICES & WORK SECTION ================= */}
       <CategoryWiseServicesSection
         title="Inoviq Services Directory"
         subtitle="Explore our comprehensive suite of 48+ services across 5 specialized business categories. Click any domain to view all dedicated service cards with full descriptions and instant quotation."

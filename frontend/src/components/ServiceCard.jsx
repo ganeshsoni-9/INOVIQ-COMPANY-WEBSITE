@@ -30,7 +30,7 @@ export const ServiceCard = ({
             <span className="font-semibold text-slate-200">
               #{service.order} • Available
             </span>
-            <span className="text-cyan-300 font-mono text-[10px]">BizGrow</span>
+            <span className="text-cyan-300 font-mono text-[10px]">inoviq</span>
           </div>
         </div>
 

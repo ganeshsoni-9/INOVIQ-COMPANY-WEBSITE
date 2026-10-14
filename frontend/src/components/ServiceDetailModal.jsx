@@ -20,7 +20,7 @@ export const ServiceDetailModal = ({
 
   const handleWhatsApp = () => {
     const text = encodeURIComponent(
-      `Hello BizGrow / INOVIQ Global, I am interested in your service: "${service.title}" (${service.categoryTitle}). Please provide more details.`
+      `Hello inoviq / INOVIQ Global, I am interested in your service: "${service.title}" (${service.categoryTitle}). Please provide more details.`
     );
     window.open(`https://wa.me/919876543210?text=${text}`, '_blank');
   };
@@ -56,7 +56,7 @@ export const ServiceDetailModal = ({
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent flex flex-col justify-end p-6">
               <span className="text-cyan-300 text-xs font-semibold tracking-wider uppercase mb-1">
-                BizGrow Service Catalog
+                inoviq Service Catalog
               </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-white font-['Outfit'] leading-tight">
                 {service.title}

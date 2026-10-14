@@ -11,7 +11,7 @@ export const ServicesIndex = () => {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <span className="text-xs font-bold text-cyan-400 uppercase tracking-wider bg-slate-800/90 px-4 py-1.5 rounded-full border border-slate-700 shadow-sm inline-block mb-4">
-            BizGrow Integrated Directory
+            inoviq Integrated Directory
           </span>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white font-['Outfit'] tracking-tight">

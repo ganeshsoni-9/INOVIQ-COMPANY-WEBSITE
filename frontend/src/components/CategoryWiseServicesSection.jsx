@@ -19,7 +19,7 @@ import { InquiryModal } from './InquiryModal';
 export const CategoryWiseServicesSection = ({
   initialCategoryId = 'all',
   showCategoryCards = true,
-  title = 'BizGrow Category-Wise Services Directory',
+  title = 'inoviq Category-Wise Services Directory',
   subtitle = 'Every service category opens its own dedicated listing with individual cards and descriptions.',
 }) => {
   const [selectedCategory, setSelectedCategory] = useState(initialCategoryId);
@@ -80,7 +80,7 @@ export const CategoryWiseServicesSection = ({
         <div className="text-center max-w-3xl mx-auto mb-14">
           <span className="text-xs font-bold text-blue-600 uppercase tracking-wider bg-blue-50 px-4 py-1.5 rounded-full border border-blue-200/60 inline-flex items-center gap-1.5 shadow-sm">
             <Sparkles className="w-3.5 h-3.5 text-blue-600" />
-            <span>BizGrow Integrated Capabilities</span>
+            <span>inoviq Integrated Capabilities</span>
           </span>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 mt-4 font-['Outfit'] tracking-tight">
@@ -226,7 +226,7 @@ export const CategoryWiseServicesSection = ({
           <div className="flex items-center gap-2">
             <span className="text-sm font-bold text-slate-800 font-['Outfit']">
               {selectedCategory === 'all'
-                ? 'All BizGrow Offerings'
+                ? 'All inoviq Offerings'
                 : activeCategoryObj?.title}
             </span>
             <span className="text-xs font-semibold text-slate-500 bg-white px-2.5 py-0.5 rounded-full border border-slate-200">
