@@ -1,0 +1,154 @@
+import React from 'react';
+import {
+  X,
+  CheckCircle2,
+  Sparkles,
+  ArrowRight,
+  MessageCircle,
+  ShieldCheck,
+  Send,
+  Layers,
+} from 'lucide-react';
+
+export const ServiceDetailModal = ({
+  service,
+  isOpen,
+  onClose,
+  onEnquire,
+}) => {
+  if (!isOpen || !service) return null;
+
+  const handleWhatsApp = () => {
+    const text = encodeURIComponent(
+      `Hello BizGrow / INOVIQ Global, I am interested in your service: "${service.title}" (${service.categoryTitle}). Please provide more details.`
+    );
+    window.open(`https://wa.me/919876543210?text=${text}`, '_blank');
+  };
+
+  return (
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-slate-950/75 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-200">
+      <div className="relative w-full max-w-3xl bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden my-8 max-h-[92vh] flex flex-col">
+        {/* Modal Header Bar with Close Button */}
+        <div className="sticky top-0 z-20 bg-white/95 backdrop-blur-sm px-6 py-4 border-b border-slate-100 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <span className="text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-blue-50 text-blue-700 border border-blue-200">
+              {service.categoryTitle}
+            </span>
+          </div>
+
+          <button
+            onClick={onClose}
+            className="p-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
+            aria-label="Close details"
+          >
+            <X className="w-5 h-5" />
+          </button>
+        </div>
+
+        {/* Scrollable Modal Body */}
+        <div className="overflow-y-auto p-6 sm:p-8 space-y-6">
+          {/* Cover Image & Title Hero */}
+          <div className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-900 h-56 sm:h-72">
+            <img
+              src={service.image}
+              alt={service.title}
+              className="w-full h-full object-cover opacity-90"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent flex flex-col justify-end p-6">
+              <span className="text-cyan-300 text-xs font-semibold tracking-wider uppercase mb-1">
+                BizGrow Service Catalog
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-white font-['Outfit'] leading-tight">
+                {service.title}
+              </h2>
+            </div>
+          </div>
+
+          {/* Detailed Description */}
+          <div>
+            <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">
+              Service Overview
+            </h3>
+            <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
+              {service.fullDescription || service.shortDescription}
+            </p>
+          </div>
+
+          {/* Deliverables / What is Included */}
+          {service.includes && service.includes.length > 0 && (
+            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200">
+              <h4 className="text-sm font-bold text-slate-900 mb-3 font-['Outfit'] flex items-center gap-2">
+                <Layers className="w-4 h-4 text-blue-600" />
+                <span>What This Service Includes</span>
+              </h4>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                {service.includes.map((item, idx) => (
+                  <div key={idx} className="flex items-start gap-2 text-xs text-slate-700">
+                    <CheckCircle2 className="w-4 h-4 text-blue-600 mt-0.5 shrink-0" />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Benefits to Customer */}
+          {service.benefits && service.benefits.length > 0 && (
+            <div className="p-6 rounded-2xl bg-blue-50/50 border border-blue-100">
+              <h4 className="text-sm font-bold text-slate-900 mb-3 font-['Outfit'] flex items-center gap-2">
+                <Sparkles className="w-4 h-4 text-blue-600" />
+                <span>Key Commercial Benefits</span>
+              </h4>
+              <div className="space-y-2">
+                {service.benefits.map((b, idx) => (
+                  <div key={idx} className="flex items-start gap-2 text-xs text-slate-700">
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600 mt-1.5 shrink-0"></span>
+                    <span>{b}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Disclaimer for legal/ad services if applicable */}
+          {service.categorySlug === 'legal-business-support' && (
+            <div className="p-3.5 rounded-xl bg-amber-50 border border-amber-200/80 text-[11px] text-amber-800 leading-relaxed">
+              ℹ️ <strong>Administrative Notice:</strong> Corporate registration and trademark search services provide administrative facilitation and documentation assistance coordinated with certified practicing professionals.
+            </div>
+          )}
+        </div>
+
+        {/* Modal Action Footer */}
+        <div className="sticky bottom-0 z-20 bg-slate-50 px-6 py-4 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <button
+            onClick={onClose}
+            className="w-full sm:w-auto px-5 py-2.5 rounded-xl text-xs font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-200 transition-colors"
+          >
+            ← Back to Services
+          </button>
+
+          <div className="flex items-center gap-3 w-full sm:w-auto">
+            <button
+              onClick={handleWhatsApp}
+              className="flex-1 sm:flex-none px-4 py-2.5 rounded-xl text-xs font-bold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 transition-colors flex items-center justify-center gap-1.5"
+            >
+              <MessageCircle className="w-4 h-4 text-emerald-600" />
+              <span>WhatsApp Chat</span>
+            </button>
+
+            <button
+              onClick={() => {
+                onClose();
+                onEnquire(service.categoryTitle, service.title);
+              }}
+              className="flex-1 sm:flex-none px-6 py-2.5 rounded-xl text-xs font-bold text-white bg-blue-600 hover:bg-blue-700 transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-1.5"
+            >
+              <Send className="w-3.5 h-3.5" />
+              <span>Enquire About This Service</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
