@@ -1,3 +1,4 @@
+
 import { Setting } from '../models/Setting.js';
 
 const DEFAULT_SETTINGS = {
@@ -7,10 +8,10 @@ const DEFAULT_SETTINGS = {
   inquiryEmail: 'inquiries@INOVIQglobal.com',
   companyPhone: '+91 80001 80600',
   whatsappNumber: '+919876543210',
-  address: '2nd Floor, Bhawani Plaza,
-Chandpol Gate, Sikar,
-Rajasthan 332001',
+
+  address: '2nd Floor, Bhawani Plaza, Chandpol Gate, Sikar, Rajasthan 332001',
   officeHours: 'Monday – Saturday: 9:30 AM – 7:00 PM IST',
+
   socialLinks: {
     facebook: 'https://facebook.com/INOVIQglobal',
     instagram: 'https://instagram.com/INOVIQglobal',
@@ -18,7 +19,9 @@ Rajasthan 332001',
     twitter: 'https://twitter.com/INOVIQglobal',
     youtube: 'https://youtube.com/@INOVIQglobal',
   },
+
   emailNotificationsEnabled: true,
+
   announcementBar: {
     enabled: true,
     text: '🚀 Accelerate your business growth with INOVIQ GLOBAL — Web, Branding, Digital Marketing & Legal Solutions.',
@@ -28,14 +31,20 @@ Rajasthan 332001',
 };
 
 /**
- * @route   GET /api/settings
- * @desc    Get public site settings
- * @access  Public
+ * @route GET /api/settings
+ * @desc Get public site settings
+ * @access Public
  */
 export const getPublicSettings = async (req, res, next) => {
   try {
-    const settingsDoc = await Setting.findOne({ key: 'site_settings' });
-    const settings = settingsDoc ? settingsDoc.value : DEFAULT_SETTINGS;
+    const settingsDoc = await Setting.findOne({
+      key: 'site_settings',
+    });
+
+    const settings = settingsDoc
+      ? settingsDoc.value
+      : DEFAULT_SETTINGS;
+
     res.json({
       success: true,
       data: settings,
@@ -46,20 +55,38 @@ export const getPublicSettings = async (req, res, next) => {
 };
 
 /**
- * @route   PUT /api/admin/settings
- * @desc    Update site settings
- * @access  Private
+ * @route PUT /api/admin/settings
+ * @desc Update site settings
+ * @access Private
  */
 export const updateSettings = async (req, res, next) => {
   try {
-    const existing = await Setting.findOne({ key: 'site_settings' });
-    const currentVal = existing && existing.value ? existing.value : DEFAULT_SETTINGS;
-    const mergedValue = { ...currentVal, ...req.body };
+    const existing = await Setting.findOne({
+      key: 'site_settings',
+    });
+
+    const currentVal =
+      existing && existing.value
+        ? existing.value
+        : DEFAULT_SETTINGS;
+
+    const mergedValue = {
+      ...currentVal,
+      ...req.body,
+    };
 
     const updated = await Setting.findOneAndUpdate(
       { key: 'site_settings' },
-      { $set: { key: 'site_settings', value: mergedValue } },
-      { new: true, upsert: true }
+      {
+        $set: {
+          key: 'site_settings',
+          value: mergedValue,
+        },
+      },
+      {
+        new: true,
+        upsert: true,
+      }
     );
 
     res.json({

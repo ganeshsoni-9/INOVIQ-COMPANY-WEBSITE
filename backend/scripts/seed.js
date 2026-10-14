@@ -805,17 +805,17 @@ export const seedDatabase = async (autoClose = false) => {
       inquiryEmail: 'inquiries@INOVIQglobal.com',
       companyPhone: '+91 80001 80600',
       whatsappNumber: '+919876543210',
-      address: '2nd Floor, Bhawani Plaza,
-Chandpol Gate, Sikar,
-Rajasthan 332001',
-      officeHours: 'Monday – Saturday: 9:30 AM – 7:00 PM IST',
-      socialLinks: {
-        facebook: 'https://facebook.com/INOVIQglobal',
-        instagram: 'https://instagram.com/INOVIQglobal',
-        linkedin: 'https://linkedin.com/company/INOVIQglobal',
-        twitter: 'https://twitter.com/INOVIQglobal',
-        youtube: 'https://youtube.com/@INOVIQglobal',
-      },
+      
+address: '2nd Floor, Bhawani Plaza, Chandpol Gate, Sikar, Rajasthan 332001',
+officeHours: 'Monday – Saturday: 9:30 AM – 7:00 PM IST',
+socialLinks: {
+  facebook: 'https://facebook.com/INOVIQglobal',
+  instagram: 'https://instagram.com/INOVIQglobal',
+  linkedin: 'https://linkedin.com/company/INOVIQglobal',
+  twitter: 'https://twitter.com/INOVIQglobal',
+  youtube: 'https://youtube.com/@INOVIQglobal',
+},
+
       emailNotificationsEnabled: true,
       announcementBar: {
         enabled: true,
