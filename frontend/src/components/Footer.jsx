@@ -14,7 +14,7 @@ import { Logo } from './Logo';
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
   const location = useLocation();
-  const isHomePage = location.pathname === '/';
+  const isHomePage = true;
 
   return (
     <footer className={`${isHomePage ? 'bg-[#0B0B0B] border-[#3A321C]' : 'bg-[#0A192F] border-slate-800'} text-slate-300 pt-16 pb-8 border-t`}>

@@ -5,7 +5,7 @@ import { Link, useLocation } from 'react-router-dom';
 export const FloatingActions = () => {
   const [showTopBtn, setShowTopBtn] = useState(false);
   const location = useLocation();
-  const isHomePage = location.pathname === '/';
+  const isHomePage = true;
 
   useEffect(() => {
     const checkScroll = () => {

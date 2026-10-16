@@ -21,21 +21,30 @@ export const CategoryCard = ({
   category,
   onSelectCategory,
   isActive = false,
-  isHome = false,
+  isHome = true,
+  dark = false,
 }) => {
   const IconComponent = iconMap[category.iconName] || Palette;
 
   return (
     <div
       onClick={() => onSelectCategory(category.id)}
-      className={`relative bg-white rounded-3xl overflow-hidden border transition-all duration-300 cursor-pointer flex flex-col justify-between group hover:-translate-y-1.5 ${
-        isActive
-          ? isHome
-            ? 'border-[#D4AF37] shadow-xl ring-2 ring-[#D4AF37]/20'
-            : 'border-blue-600 shadow-xl ring-2 ring-blue-500/20'
-          : isHome
-          ? 'border-slate-200/90 shadow-md hover:shadow-xl hover:border-[#D4AF37]'
-          : 'border-slate-200/90 shadow-md hover:shadow-xl hover:border-blue-400'
+      className={`relative rounded-3xl overflow-hidden border transition-all duration-300 cursor-pointer flex flex-col justify-between group hover:-translate-y-1.5 ${
+        dark
+          ? `bg-[#171717] ${
+              isActive
+                ? 'border-[#D4AF37] shadow-xl ring-2 ring-[#D4AF37]/20'
+                : 'border-[#3A321C] shadow-md hover:shadow-xl hover:border-[#D4AF37]'
+            }`
+          : `bg-white ${
+              isActive
+                ? isHome
+                  ? 'border-[#D4AF37] shadow-xl ring-2 ring-[#D4AF37]/20'
+                  : 'border-blue-600 shadow-xl ring-2 ring-blue-500/20'
+                : isHome
+                ? 'border-slate-200/90 shadow-md hover:shadow-xl hover:border-[#D4AF37]'
+                : 'border-slate-200/90 shadow-md hover:shadow-xl hover:border-blue-400'
+            }`
       }`}
     >
       <div>
@@ -78,16 +87,16 @@ export const CategoryCard = ({
 
         {/* Content Body */}
         <div className="p-6">
-          <p className="text-xs text-slate-600 leading-relaxed mb-4">
+          <p className={`text-xs leading-relaxed mb-4 ${dark ? 'text-[#B5B5B5]' : 'text-slate-600'}`}>
             {category.description}
           </p>
 
           {/* Highlights checklist */}
           {category.highlights && (
-            <div className="space-y-1.5 pt-3 border-t border-slate-100">
+            <div className={`space-y-1.5 pt-3 border-t ${dark ? 'border-[#3A321C]/60' : 'border-slate-100'}`}>
               {category.highlights.slice(0, 3).map((h, i) => (
-                <div key={i} className="flex items-center gap-2 text-[11px] text-slate-700">
-                  <CheckCircle2 className={`w-3.5 h-3.5 shrink-0 ${isHome ? 'text-[#D4AF37]' : 'text-blue-500'}`} />
+                <div key={i} className={`flex items-center gap-2 text-[11px] ${dark ? 'text-[#CCCCCC]' : 'text-slate-700'}`}>
+                  <CheckCircle2 className="w-3.5 h-3.5 shrink-0 text-[#D4AF37]" />
                   <span className="line-clamp-1">{h}</span>
                 </div>
               ))}
@@ -97,17 +106,17 @@ export const CategoryCard = ({
       </div>
 
       {/* Explore Services Button Footer */}
-      <div className="px-6 pb-6 pt-2 border-t border-slate-100/80 flex items-center justify-between">
-        <span className={`text-xs font-semibold transition-colors ${isHome ? 'text-slate-400 group-hover:text-[#D4AF37]' : 'text-slate-400 group-hover:text-blue-600'}`}>
+      <div className={`px-6 pb-6 pt-2 border-t flex items-center justify-between ${dark ? 'border-[#3A321C]/60' : 'border-slate-100/80'}`}>
+        <span className={`text-xs font-semibold transition-colors ${dark ? 'text-[#888888] group-hover:text-[#D4AF37]' : isHome ? 'text-slate-400 group-hover:text-[#D4AF37]' : 'text-slate-400 group-hover:text-blue-600'}`}>
           Browse Catalog
         </span>
 
         <span
           className={`inline-flex items-center gap-1.5 text-xs font-bold px-4 py-2 rounded-xl transition-all ${
             isActive
-              ? isHome
-                ? 'bg-gradient-to-r from-[#D4AF37] to-[#C9A227] text-[#0B0B0B] shadow-md'
-                : 'bg-blue-600 text-white shadow-md'
+              ? 'bg-gradient-to-r from-[#D4AF37] to-[#C9A227] text-[#0B0B0B] shadow-md'
+              : dark
+              ? 'bg-[#111111] text-[#D4AF37] border border-[#3A321C] group-hover:bg-gradient-to-r group-hover:from-[#D4AF37] group-hover:to-[#C9A227] group-hover:text-[#0B0B0B]'
               : isHome
               ? 'bg-slate-100 text-slate-700 group-hover:bg-gradient-to-r group-hover:from-[#D4AF37] group-hover:to-[#C9A227] group-hover:text-[#0B0B0B]'
               : 'bg-slate-100 text-slate-700 group-hover:bg-blue-600 group-hover:text-white'

@@ -42,14 +42,14 @@ export const DigitalServices = () => {
   return (
     <div className="w-full">
       {/* Category Hero */}
-      <section className="bg-gradient-to-b from-[#0A192F] via-[#0E2A3A] to-[#0A192F] text-white py-20 lg:py-24 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl pointer-events-none"></div>
+      <section className="bg-[#0B0B0B] text-white py-20 lg:py-24 relative overflow-hidden">
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-gradient-to-tr from-[#D4AF37]/10 via-[#C9A227]/5 to-transparent rounded-full blur-[120px] pointer-events-none"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="mb-6">
             <Link
               to="/services"
-              className="inline-flex items-center gap-2 text-xs font-semibold text-slate-300 hover:text-white bg-white/10 hover:bg-white/15 px-3.5 py-1.5 rounded-full border border-white/10 transition-colors"
+              className="inline-flex items-center gap-2 text-xs font-semibold text-[#D4AF37] hover:text-[#F5E6B3] bg-[#171717] hover:bg-[#222222] px-3.5 py-1.5 rounded-full border border-[#3A321C] transition-colors"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
               <span>Back to All Services</span>
@@ -57,7 +57,7 @@ export const DigitalServices = () => {
           </div>
 
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-950/80 border border-cyan-800 text-cyan-300 text-xs font-bold uppercase tracking-wider mb-4 shadow-sm">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#171717] border border-[#3A321C] text-[#D4AF37] text-xs font-bold uppercase tracking-wider mb-4 shadow-sm">
               <Share2 className="w-4 h-4" />
               <span>Category • 8 Digital Presence Services</span>
             </div>
@@ -66,7 +66,7 @@ export const DigitalServices = () => {
               Digital Services
             </h1>
 
-            <p className="text-slate-300 text-base sm:text-lg leading-relaxed mb-8">
+            <p className="text-[#B5B5B5] text-base sm:text-lg leading-relaxed mb-8">
               Digital business presence and platform management solutions to help businesses improve visibility and engage with their audiences online.
             </p>
 
@@ -78,7 +78,7 @@ export const DigitalServices = () => {
                 placeholder="Search across 8 digital services..."
                 value={filterQuery}
                 onChange={(e) => setFilterQuery(e.target.value)}
-                className="w-full pl-11 pr-4 py-3 rounded-2xl bg-white/10 border border-slate-700 text-white placeholder-slate-400 text-xs sm:text-sm focus:outline-none focus:bg-white/15 focus:ring-2 focus:ring-cyan-400 transition-all backdrop-blur-md"
+                className="w-full pl-11 pr-4 py-3 rounded-2xl bg-[#171717] border border-[#3A321C] text-white placeholder-slate-500 text-xs sm:text-sm focus:outline-none focus:bg-[#111111] focus:ring-2 focus:ring-[#D4AF37] transition-all backdrop-blur-md"
               />
             </div>
           </div>
@@ -86,31 +86,31 @@ export const DigitalServices = () => {
       </section>
 
       {/* Services Grid (Responsive: 3 on Desktop, 2 on Tablet, 1 on Mobile) */}
-      <section className="py-20 bg-slate-50">
+      <section className="py-20 bg-[#111111] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-10 pb-4 border-b border-slate-200">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-10 pb-4 border-b border-[#3A321C]">
             <div>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-['Outfit']">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-white font-['Outfit']">
                 All 8 Digital Services
               </h2>
-              <p className="text-xs text-slate-500 mt-1">
+              <p className="text-xs text-[#B5B5B5] mt-1">
                 Google Business Profiles, professional social page creation, organic growth, and marketplace storefronts.
               </p>
             </div>
 
-            <span className="text-xs font-bold text-cyan-700 bg-cyan-50 px-3.5 py-1.5 rounded-full border border-cyan-200 self-start sm:self-auto">
+            <span className="text-xs font-bold text-[#D4AF37] bg-[#171717] px-3.5 py-1.5 rounded-full border border-[#3A321C] self-start sm:self-auto">
               Showing {filteredServices.length} of {digitalServices.length} Services
             </span>
           </div>
 
           {filteredServices.length === 0 ? (
-            <div className="text-center py-16 bg-white rounded-3xl border border-slate-200 p-8 shadow-sm">
-              <p className="text-slate-500 text-sm mb-3">
+            <div className="text-center py-16 bg-[#171717] rounded-3xl border border-[#3A321C] p-8 shadow-sm">
+              <p className="text-[#B5B5B5] text-sm mb-3">
                 No digital services found matching "{filterQuery}".
               </p>
               <button
                 onClick={() => setFilterQuery('')}
-                className="px-4 py-2 rounded-xl bg-cyan-600 text-white text-xs font-bold hover:bg-cyan-700 transition-colors"
+                className="px-4 py-2 rounded-xl bg-gradient-to-r from-[#D4AF37] to-[#C9A227] text-[#0B0B0B] text-xs font-bold hover:from-[#C9A227] hover:to-[#B38F20] transition-colors"
               >
                 Clear Search
               </button>
@@ -131,16 +131,16 @@ export const DigitalServices = () => {
       </section>
 
       {/* Embedded Direct Quotation Section */}
-      <section className="py-20 bg-white border-t border-slate-200">
+      <section className="py-20 bg-[#0B0B0B] border-t border-[#3A321C] text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <span className="text-xs font-bold text-cyan-600 uppercase tracking-wider bg-cyan-50 px-3.5 py-1.5 rounded-full border border-cyan-200">
+            <span className="text-xs font-bold text-[#D4AF37] uppercase tracking-wider bg-[#171717] px-3.5 py-1.5 rounded-full border border-[#3A321C]">
               Boost Your Digital Presence
             </span>
-            <h2 className="text-3xl font-extrabold text-slate-900 mt-3 font-['Outfit']">
+            <h2 className="text-3xl font-extrabold text-white mt-3 font-['Outfit']">
               Request A Digital Services Consultation
             </h2>
-            <p className="text-xs sm:text-sm text-slate-600 mt-2">
+            <p className="text-xs sm:text-sm text-[#B5B5B5] mt-2">
               Tell us about your platforms and brand goals. Our digital specialists will evaluate your setup and respond within 24 hours.
             </p>
           </div>

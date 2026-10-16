@@ -160,51 +160,51 @@ export const InquiryForm = ({
   // SUCCESS STATE SCREEN
   if (successData) {
     return (
-      <div className="bg-white rounded-3xl p-8 sm:p-10 border border-slate-200/90 shadow-xl text-center animate-in fade-in zoom-in-95 duration-300">
-        <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-6">
-          <CheckCircle2 className="w-10 h-10 text-emerald-600" />
+      <div className="bg-[#171717] rounded-3xl p-8 sm:p-10 border border-[#3A321C] shadow-xl text-center text-white animate-in fade-in zoom-in-95 duration-300">
+        <div className="w-16 h-16 bg-[#D4AF37]/20 rounded-full flex items-center justify-center mx-auto mb-6">
+          <CheckCircle2 className="w-10 h-10 text-[#D4AF37]" />
         </div>
 
-        <span className="text-xs font-bold uppercase tracking-wider text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full">
+        <span className="text-xs font-bold uppercase tracking-wider text-[#D4AF37] bg-[#D4AF37]/10 border border-[#3A321C] px-3 py-1 rounded-full">
           Inquiry Registered Successfully
         </span>
 
-        <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-4 mb-2 font-['Outfit']">
+        <h3 className="text-2xl sm:text-3xl font-extrabold text-white mt-4 mb-2 font-['Outfit']">
           Thank You, {successData.inquiry?.fullName || formData.fullName}!
         </h3>
 
-        <p className="text-sm text-slate-600 max-w-md mx-auto mb-6">
+        <p className="text-sm text-[#B5B5B5] max-w-md mx-auto mb-6">
           Your inquiry has been submitted and entered into our secure management system. Our team will review your specifications and contact you shortly.
         </p>
 
         {/* Reference Box */}
-        <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5 max-w-sm mx-auto mb-6 text-left">
-          <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider block mb-1">
+        <div className="bg-[#111111] border border-[#3A321C] rounded-2xl p-5 max-w-sm mx-auto mb-6 text-left">
+          <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider block mb-1">
             Your Tracking Reference:
           </span>
           <div className="flex items-center justify-between">
-            <span className="text-xl font-bold font-mono text-blue-600 tracking-wider">
+            <span className="text-xl font-bold font-mono text-[#D4AF37] tracking-wider">
               {successData.referenceNumber}
             </span>
             <button
               onClick={copyReference}
-              className="flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-100 transition-colors"
+              className="flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-[#171717] text-[#D4AF37] border border-[#3A321C] hover:bg-[#222222] transition-colors"
               title="Copy Reference"
             >
-              {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
+              {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
               <span>{copied ? 'Copied' : 'Copy'}</span>
             </button>
           </div>
         </div>
 
-        <div className="text-xs text-slate-500 space-y-1 mb-8">
-          <p>Preferred Channel: <strong className="text-slate-700 capitalize">{formData.preferredContactMethod}</strong></p>
-          <p>An acknowledgement has been logged for: <strong className="text-slate-700">{formData.email}</strong></p>
+        <div className="text-xs text-slate-400 space-y-1 mb-8">
+          <p>Preferred Channel: <strong className="text-slate-200 capitalize">{formData.preferredContactMethod}</strong></p>
+          <p>An acknowledgement has been logged for: <strong className="text-slate-200">{formData.email}</strong></p>
         </div>
 
         <button
           onClick={resetForm}
-          className="inline-flex items-center justify-center px-6 py-3 rounded-xl text-sm font-semibold text-blue-600 bg-blue-50 hover:bg-blue-100 transition-colors"
+          className="inline-flex items-center justify-center px-6 py-3 rounded-xl text-sm font-bold text-[#0B0B0B] bg-gradient-to-r from-[#D4AF37] to-[#C9A227] hover:from-[#C9A227] hover:to-[#B38F20] transition-colors"
         >
           Submit Another Inquiry
         </button>
@@ -216,26 +216,26 @@ export const InquiryForm = ({
   return (
     <form
       onSubmit={handleSubmit}
-      className={`bg-white rounded-3xl border border-slate-200/90 shadow-xl ${
+      className={`bg-[#171717] rounded-3xl border border-[#3A321C] shadow-xl text-white ${
         compact ? 'p-6 sm:p-8' : 'p-6 sm:p-10'
       }`}
     >
       <div className="mb-6">
-        <div className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 uppercase tracking-wider bg-blue-50 px-3 py-1 rounded-full mb-2">
+        <div className="inline-flex items-center gap-1.5 text-xs font-bold text-[#D4AF37] uppercase tracking-wider bg-[#D4AF37]/10 border border-[#3A321C] px-3 py-1 rounded-full mb-2">
           <Sparkles className="w-3.5 h-3.5" />
           <span>Quick Response Guaranteed</span>
         </div>
-        <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 font-['Outfit']">
+        <h3 className="text-2xl sm:text-3xl font-bold text-white font-['Outfit']">
           Get Started With INOVIQ Global
         </h3>
-        <p className="text-xs sm:text-sm text-slate-500 mt-1">
+        <p className="text-xs sm:text-sm text-[#B5B5B5] mt-1">
           Tell us about your requirements. We prepare custom proposals within 24 business hours.
         </p>
       </div>
 
       {error && (
-        <div className="mb-6 p-4 rounded-2xl bg-rose-50 border border-rose-200 text-rose-700 text-xs sm:text-sm flex items-start gap-3 animate-in fade-in">
-          <AlertCircle className="w-5 h-5 shrink-0 mt-0.5 text-rose-600" />
+        <div className="mb-6 p-4 rounded-2xl bg-rose-950/40 border border-rose-800 text-rose-300 text-xs sm:text-sm flex items-start gap-3 animate-in fade-in">
+          <AlertCircle className="w-5 h-5 shrink-0 mt-0.5 text-rose-400" />
           <div className="flex-1">{error}</div>
         </div>
       )}
@@ -244,7 +244,7 @@ export const InquiryForm = ({
         {/* Name & Email Row */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+            <label className="block text-xs font-bold text-slate-200 uppercase tracking-wider mb-1.5">
               Full Name <span className="text-rose-500">*</span>
             </label>
             <div className="relative">
@@ -256,13 +256,13 @@ export const InquiryForm = ({
                 onChange={handleChange}
                 placeholder="e.g. Rajesh Sharma"
                 required
-                className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 bg-slate-50/50 text-slate-800 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-[#3A321C] bg-[#111111] text-white placeholder-slate-500 text-sm focus:bg-[#111111] focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:border-[#D4AF37] transition-all"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+            <label className="block text-xs font-bold text-slate-200 uppercase tracking-wider mb-1.5">
               Email Address <span className="text-rose-500">*</span>
             </label>
             <div className="relative">
@@ -274,7 +274,7 @@ export const InquiryForm = ({
                 onChange={handleChange}
                 placeholder="you@company.com"
                 required
-                className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 bg-slate-50/50 text-slate-800 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-[#3A321C] bg-[#111111] text-white placeholder-slate-500 text-sm focus:bg-[#111111] focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:border-[#D4AF37] transition-all"
               />
             </div>
           </div>
@@ -283,7 +283,7 @@ export const InquiryForm = ({
         {/* Phone & Company Row */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+            <label className="block text-xs font-bold text-slate-200 uppercase tracking-wider mb-1.5">
               Phone / WhatsApp <span className="text-rose-500">*</span>
             </label>
             <div className="relative">
@@ -295,13 +295,13 @@ export const InquiryForm = ({
                 onChange={handleChange}
                 placeholder="+91 80001 80600"
                 required
-                className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 bg-slate-50/50 text-slate-800 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-[#3A321C] bg-[#111111] text-white placeholder-slate-500 text-sm focus:bg-[#111111] focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:border-[#D4AF37] transition-all"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+            <label className="block text-xs font-bold text-slate-200 uppercase tracking-wider mb-1.5">
               Company Name (Optional)
             </label>
             <div className="relative">
@@ -312,7 +312,7 @@ export const InquiryForm = ({
                 value={formData.companyName}
                 onChange={handleChange}
                 placeholder="Your Business / Brand"
-                className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 bg-slate-50/50 text-slate-800 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-[#3A321C] bg-[#111111] text-white placeholder-slate-500 text-sm focus:bg-[#111111] focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:border-[#D4AF37] transition-all"
               />
             </div>
           </div>
@@ -321,17 +321,17 @@ export const InquiryForm = ({
         {/* Category & Specific Service */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+            <label className="block text-xs font-bold text-slate-200 uppercase tracking-wider mb-1.5">
               Service Domain <span className="text-rose-500">*</span>
             </label>
             <select
               name="serviceCategory"
               value={formData.serviceCategory}
               onChange={handleChange}
-              className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50/50 text-slate-800 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+              className="w-full px-3.5 py-2.5 rounded-xl border border-[#3A321C] bg-[#111111] text-white text-sm focus:bg-[#111111] focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:border-[#D4AF37] transition-all"
             >
               {categories.map((c) => (
-                <option key={c} value={c}>
+                <option key={c} value={c} className="bg-[#111111] text-white">
                   {c}
                 </option>
               ))}
@@ -339,7 +339,7 @@ export const InquiryForm = ({
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+            <label className="block text-xs font-bold text-slate-200 uppercase tracking-wider mb-1.5">
               Specific Service / Interest
             </label>
             <input
@@ -348,14 +348,14 @@ export const InquiryForm = ({
               value={formData.specificService}
               onChange={handleChange}
               placeholder="e.g. 3D Logo, MERN App, Meta Ads"
-              className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50/50 text-slate-800 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+              className="w-full px-3.5 py-2.5 rounded-xl border border-[#3A321C] bg-[#111111] text-white placeholder-slate-500 text-sm focus:bg-[#111111] focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:border-[#D4AF37] transition-all"
             />
           </div>
         </div>
 
         {/* Requirements Multiline */}
         <div>
-          <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+          <label className="block text-xs font-bold text-slate-200 uppercase tracking-wider mb-1.5">
             Project Description & Requirements <span className="text-rose-500">*</span>
           </label>
           <textarea
@@ -365,24 +365,24 @@ export const InquiryForm = ({
             rows={compact ? 3 : 4}
             required
             placeholder="Share details about your objectives, desired features, deliverables, or current bottlenecks..."
-            className="w-full p-3.5 rounded-xl border border-slate-200 bg-slate-50/50 text-slate-800 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-y"
+            className="w-full p-3.5 rounded-xl border border-[#3A321C] bg-[#111111] text-white placeholder-slate-500 text-sm focus:bg-[#111111] focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:border-[#D4AF37] transition-all resize-y"
           ></textarea>
         </div>
 
         {/* Budget & Timeline */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+            <label className="block text-xs font-bold text-slate-200 uppercase tracking-wider mb-1.5">
               Estimated Budget
             </label>
             <select
               name="estimatedBudget"
               value={formData.estimatedBudget}
               onChange={handleChange}
-              className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50/50 text-slate-800 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+              className="w-full px-3.5 py-2.5 rounded-xl border border-[#3A321C] bg-[#111111] text-white text-sm focus:bg-[#111111] focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:border-[#D4AF37] transition-all"
             >
               {budgetRanges.map((b) => (
-                <option key={b} value={b}>
+                <option key={b} value={b} className="bg-[#111111] text-white">
                   {b}
                 </option>
               ))}
@@ -390,17 +390,17 @@ export const InquiryForm = ({
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+            <label className="block text-xs font-bold text-slate-200 uppercase tracking-wider mb-1.5">
               Expected Timeline
             </label>
             <select
               name="expectedTimeline"
               value={formData.expectedTimeline}
               onChange={handleChange}
-              className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50/50 text-slate-800 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+              className="w-full px-3.5 py-2.5 rounded-xl border border-[#3A321C] bg-[#111111] text-white text-sm focus:bg-[#111111] focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:border-[#D4AF37] transition-all"
             >
               {timelineOptions.map((t) => (
-                <option key={t} value={t}>
+                <option key={t} value={t} className="bg-[#111111] text-white">
                   {t}
                 </option>
               ))}
@@ -410,7 +410,7 @@ export const InquiryForm = ({
 
         {/* Preferred Contact Method */}
         <div>
-          <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+          <label className="block text-xs font-bold text-slate-200 uppercase tracking-wider mb-1.5">
             Preferred Contact Method
           </label>
           <div className="grid grid-cols-3 gap-3">
@@ -423,8 +423,8 @@ export const InquiryForm = ({
                 key={method.id}
                 className={`flex items-center justify-center gap-2 p-2.5 rounded-xl border text-xs font-semibold cursor-pointer transition-all ${
                   formData.preferredContactMethod === method.id
-                    ? 'border-blue-600 bg-blue-50 text-blue-700 shadow-sm'
-                    : 'border-slate-200 bg-white text-slate-600 hover:bg-slate-50'
+                    ? 'border-[#D4AF37] bg-[#D4AF37]/15 text-[#D4AF37] shadow-sm'
+                    : 'border-[#3A321C] bg-[#111111] text-slate-300 hover:bg-[#1a1a1a]'
                 }`}
               >
                 <input
@@ -444,7 +444,7 @@ export const InquiryForm = ({
 
         {/* Best time to contact */}
         <div>
-          <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+          <label className="block text-xs font-bold text-slate-200 uppercase tracking-wider mb-1.5">
             Best Time To Reach You (Optional)
           </label>
           <input
@@ -453,33 +453,33 @@ export const InquiryForm = ({
             value={formData.bestTimeToContact}
             onChange={handleChange}
             placeholder="e.g. Weekday afternoons, 2-5 PM"
-            className="w-full px-3.5 py-2 rounded-xl border border-slate-200 bg-slate-50/50 text-slate-800 text-xs focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+            className="w-full px-3.5 py-2 rounded-xl border border-[#3A321C] bg-[#111111] text-white placeholder-slate-500 text-xs focus:bg-[#111111] focus:outline-none focus:ring-2 focus:ring-[#D4AF37] transition-all"
           />
         </div>
 
         {/* Checkboxes */}
         <div className="space-y-2 pt-2">
-          <label className="flex items-start gap-2.5 text-xs text-slate-600 cursor-pointer">
+          <label className="flex items-start gap-2.5 text-xs text-slate-300 cursor-pointer">
             <input
               type="checkbox"
               name="consent"
               checked={formData.consent}
               onChange={handleChange}
               required
-              className="mt-0.5 rounded text-blue-600 focus:ring-blue-500"
+              className="mt-0.5 rounded text-[#D4AF37] focus:ring-[#D4AF37] bg-[#111111] border-[#3A321C]"
             />
             <span>
               I consent to INOVIQ GLOBAL PVT. LTD. processing my contact details and requirements for this quotation and consultation. <span className="text-rose-500">*</span>
             </span>
           </label>
 
-          <label className="flex items-start gap-2.5 text-xs text-slate-500 cursor-pointer">
+          <label className="flex items-start gap-2.5 text-xs text-slate-400 cursor-pointer">
             <input
               type="checkbox"
               name="marketingConsent"
               checked={formData.marketingConsent}
               onChange={handleChange}
-              className="mt-0.5 rounded text-blue-600 focus:ring-blue-500"
+              className="mt-0.5 rounded text-[#D4AF37] focus:ring-[#D4AF37] bg-[#111111] border-[#3A321C]"
             />
             <span>
               Keep me updated occasionally with digital growth tips, offers, and case studies (opt out anytime).
@@ -492,7 +492,7 @@ export const InquiryForm = ({
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 text-white font-bold text-sm sm:text-base shadow-lg hover:shadow-xl hover:from-blue-700 hover:to-indigo-800 transition-all duration-200 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed hover:-translate-y-0.5 active:translate-y-0"
+            className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-[#D4AF37] via-[#C9A227] to-[#B38F20] text-[#0B0B0B] font-bold text-sm sm:text-base shadow-lg hover:shadow-xl hover:shadow-[#D4AF37]/25 hover:from-[#C9A227] hover:to-[#A68018] transition-all duration-200 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed hover:-translate-y-0.5 active:translate-y-0"
           >
             {loading ? (
               <>

@@ -21,8 +21,10 @@ export const CategoryWiseServicesSection = ({
   showCategoryCards = true,
   title = 'inoviq Category-Wise Services Directory',
   subtitle = 'Every service category opens its own dedicated listing with individual cards and descriptions.',
+  darkTheme,
 }) => {
   const location = useLocation();
+  const isDark = darkTheme !== undefined ? darkTheme : location.pathname !== '/';
   const isHome = location.pathname === '/';
   const [selectedCategory, setSelectedCategory] = useState(initialCategoryId);
   const [searchQuery, setSearchQuery] = useState('');
@@ -76,24 +78,30 @@ export const CategoryWiseServicesSection = ({
   };
 
   return (
-    <section id="services-directory" className="py-20 bg-slate-50 border-y border-slate-200/80">
+    <section id="services-directory" className={`py-20 border-y ${
+      isDark ? 'bg-[#111111] border-[#3A321C]/60' : 'bg-slate-50 border-slate-200/80'
+    }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
           <span className={`text-xs font-bold uppercase tracking-wider px-4 py-1.5 rounded-full border inline-flex items-center gap-1.5 shadow-sm ${
-            isHome
+            isHome || isDark
               ? 'text-[#D4AF37] bg-[#D4AF37]/10 border-[#3A321C]'
               : 'text-blue-600 bg-blue-50 border-blue-200/60'
           }`}>
-            <Sparkles className={`w-3.5 h-3.5 ${isHome ? 'text-[#D4AF37]' : 'text-blue-600'}`} />
+            <Sparkles className={`w-3.5 h-3.5 ${isHome || isDark ? 'text-[#D4AF37]' : 'text-blue-600'}`} />
             <span>inoviq Integrated Capabilities</span>
           </span>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 mt-4 font-['Outfit'] tracking-tight">
+          <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold mt-4 font-['Outfit'] tracking-tight ${
+            isDark ? 'text-white' : 'text-slate-900'
+          }`}>
             {title}
           </h2>
 
-          <p className="text-slate-600 text-sm sm:text-base mt-3 leading-relaxed">
+          <p className={`text-sm sm:text-base mt-3 leading-relaxed ${
+            isDark ? 'text-[#B5B5B5]' : 'text-slate-600'
+          }`}>
             {subtitle}
           </p>
         </div>
@@ -102,10 +110,16 @@ export const CategoryWiseServicesSection = ({
         {showCategoryCards && (
           <div className="mb-14">
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-xl sm:text-2xl font-bold text-slate-900 font-['Outfit']">
+              <h3 className={`text-xl sm:text-2xl font-bold font-['Outfit'] ${
+                isDark ? 'text-white' : 'text-slate-900'
+              }`}>
                 Five Specialized Domains
               </h3>
-              <span className="text-xs font-semibold text-slate-500 bg-white px-3 py-1 rounded-full border border-slate-200">
+              <span className={`text-xs font-semibold px-3 py-1 rounded-full border ${
+                isDark
+                  ? 'text-[#D4AF37] bg-[#171717] border-[#3A321C]'
+                  : 'text-slate-500 bg-white border-slate-200'
+              }`}>
                 Click any domain to explore
               </span>
             </div>
@@ -120,6 +134,7 @@ export const CategoryWiseServicesSection = ({
                     category={cat}
                     isActive={selectedCategory === cat.id}
                     isHome={isHome}
+                    dark={isDark}
                     onSelectCategory={(id) => {
                       setSelectedCategory(id);
                       // Smooth scroll down to service list
@@ -135,7 +150,9 @@ export const CategoryWiseServicesSection = ({
 
         {/* Category Navigation Bar & Search Filters */}
         <div id="category-services-listing" className="pt-4 mb-8">
-          <div className="bg-white p-4 sm:p-6 rounded-3xl border border-slate-200/90 shadow-sm space-y-4">
+          <div className={`p-4 sm:p-6 rounded-3xl border shadow-sm space-y-4 ${
+            isDark ? 'bg-[#171717] border-[#3A321C]' : 'bg-white border-slate-200/90'
+          }`}>
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
               {/* Category Pills Switcher */}
               <div className="flex flex-wrap items-center gap-2">
@@ -143,9 +160,9 @@ export const CategoryWiseServicesSection = ({
                   onClick={() => setSelectedCategory('all')}
                   className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
                     selectedCategory === 'all'
-                      ? isHome
-                        ? 'bg-gradient-to-r from-[#D4AF37] to-[#C9A227] text-[#0B0B0B] font-bold shadow-md'
-                        : 'bg-blue-600 text-white shadow-md'
+                      ? 'bg-gradient-to-r from-[#D4AF37] to-[#C9A227] text-[#0B0B0B] font-bold shadow-md'
+                      : isDark
+                      ? 'bg-[#111111] text-[#B5B5B5] hover:text-white hover:bg-[#1f1f1f] border border-[#3A321C]'
                       : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
                   }`}
                 >
@@ -158,9 +175,9 @@ export const CategoryWiseServicesSection = ({
                     onClick={() => setSelectedCategory(cat.id)}
                     className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
                       selectedCategory === cat.id
-                        ? isHome
-                          ? 'bg-gradient-to-r from-[#D4AF37] to-[#C9A227] text-[#0B0B0B] font-bold shadow-md'
-                          : 'bg-blue-600 text-white shadow-md'
+                        ? 'bg-gradient-to-r from-[#D4AF37] to-[#C9A227] text-[#0B0B0B] font-bold shadow-md'
+                        : isDark
+                        ? 'bg-[#111111] text-[#B5B5B5] hover:text-white hover:bg-[#1f1f1f] border border-[#3A321C]'
                         : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
                     }`}
                   >
@@ -171,22 +188,22 @@ export const CategoryWiseServicesSection = ({
 
               {/* Search Input */}
               <div className="relative w-full lg:w-72">
-                <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-3 pointer-events-none" />
+                <Search className={`w-4 h-4 absolute left-3.5 top-3 pointer-events-none ${isDark ? 'text-[#D4AF37]' : 'text-slate-400'}`} />
                 <input
                   type="text"
                   placeholder="Search 48 services..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className={`w-full pl-10 pr-8 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm bg-slate-50 focus:bg-white focus:outline-none transition-all ${
-                    isHome
-                      ? 'focus:ring-2 focus:ring-[#D4AF37] focus:border-[#D4AF37]'
-                      : 'focus:ring-2 focus:ring-blue-500'
+                  className={`w-full pl-10 pr-8 py-2.5 rounded-xl border text-xs sm:text-sm transition-all focus:outline-none ${
+                    isDark
+                      ? 'border-[#3A321C] bg-[#111111] text-white placeholder-[#777777] focus:ring-2 focus:ring-[#D4AF37]'
+                      : 'border-slate-200 bg-slate-50 text-slate-900 focus:bg-white focus:ring-2 focus:ring-[#D4AF37]'
                   }`}
                 />
                 {searchQuery && (
                   <button
                     onClick={() => setSearchQuery('')}
-                    className="absolute right-2.5 top-2.5 text-slate-400 hover:text-slate-600"
+                    className={`absolute right-2.5 top-2.5 ${isDark ? 'text-[#888888] hover:text-white' : 'text-slate-400 hover:text-slate-600'}`}
                   >
                     <X className="w-4 h-4" />
                   </button>
@@ -196,24 +213,26 @@ export const CategoryWiseServicesSection = ({
 
             {/* Active Category Header Banner if single category chosen */}
             {activeCategoryObj && (
-              <div className={`mt-4 pt-4 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-2xl ${
-                isHome ? 'bg-[#D4AF37]/10 border border-[#3A321C]/40' : 'bg-blue-50/40'
+              <div className={`mt-4 pt-4 border-t flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-2xl ${
+                isDark
+                  ? 'border-[#3A321C]/60 bg-[#111111]'
+                  : isHome
+                  ? 'border-slate-100 bg-[#D4AF37]/10 border border-[#3A321C]/40'
+                  : 'border-slate-100 bg-blue-50/40'
               }`}>
                 <div>
                   <div className="flex items-center gap-2 mb-1">
-                    <span className={`text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full ${
-                      isHome ? 'text-[#D4AF37] bg-[#D4AF37]/20' : 'text-blue-600 bg-blue-100'
-                    }`}>
+                    <span className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full text-[#D4AF37] bg-[#D4AF37]/20 border border-[#3A321C]">
                       Selected Category
                     </span>
-                    <span className="text-xs font-semibold text-slate-500">
+                    <span className={`text-xs font-semibold ${isDark ? 'text-[#B5B5B5]' : 'text-slate-500'}`}>
                       {activeCategoryObj.count} Individual Services
                     </span>
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 font-['Outfit']">
+                  <h3 className={`text-xl sm:text-2xl font-extrabold font-['Outfit'] ${isDark ? 'text-white' : 'text-slate-900'}`}>
                     {activeCategoryObj.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-600 mt-1 max-w-2xl leading-relaxed">
+                  <p className={`text-xs sm:text-sm mt-1 max-w-2xl leading-relaxed ${isDark ? 'text-[#B5B5B5]' : 'text-slate-600'}`}>
                     {activeCategoryObj.description}
                   </p>
                 </div>
@@ -221,7 +240,11 @@ export const CategoryWiseServicesSection = ({
                 <div className="flex items-center gap-2 shrink-0">
                   <button
                     onClick={() => setSelectedCategory('all')}
-                    className="px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-700 bg-white hover:bg-slate-100 border border-slate-200 transition-colors flex items-center gap-1.5"
+                    className={`px-3.5 py-2 rounded-xl text-xs font-semibold border transition-colors flex items-center gap-1.5 ${
+                      isDark
+                        ? 'text-[#E0E0E0] bg-[#171717] hover:bg-[#1f1f1f] border-[#3A321C]'
+                        : 'text-slate-700 bg-white hover:bg-slate-100 border-slate-200'
+                    }`}
                   >
                     <ArrowLeft className="w-3.5 h-3.5" />
                     <span>Back to All</span>
@@ -229,11 +252,7 @@ export const CategoryWiseServicesSection = ({
 
                   <Link
                     to={activeCategoryObj.path}
-                    className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-colors flex items-center gap-1.5 shadow-sm ${
-                      isHome
-                        ? 'bg-gradient-to-r from-[#D4AF37] to-[#C9A227] hover:from-[#C9A227] hover:to-[#B38F20] text-[#0B0B0B]'
-                        : 'text-white bg-blue-600 hover:bg-blue-700'
-                    }`}
+                    className="px-3.5 py-2 rounded-xl text-xs font-bold transition-colors flex items-center gap-1.5 shadow-sm bg-gradient-to-r from-[#D4AF37] to-[#C9A227] hover:from-[#F5E6B3] hover:to-[#D4AF37] text-[#0B0B0B]"
                   >
                     <span>Dedicated Page</span>
                     <ExternalLink className="w-3.5 h-3.5" />
@@ -247,18 +266,22 @@ export const CategoryWiseServicesSection = ({
         {/* Results Header */}
         <div className="flex items-center justify-between mb-6 px-1">
           <div className="flex items-center gap-2">
-            <span className="text-sm font-bold text-slate-800 font-['Outfit']">
+            <span className={`text-sm font-bold font-['Outfit'] ${isDark ? 'text-white' : 'text-slate-800'}`}>
               {selectedCategory === 'all'
                 ? 'All inoviq Offerings'
                 : activeCategoryObj?.title}
             </span>
-            <span className="text-xs font-semibold text-slate-500 bg-white px-2.5 py-0.5 rounded-full border border-slate-200">
+            <span className={`text-xs font-semibold px-2.5 py-0.5 rounded-full border ${
+              isDark
+                ? 'text-[#D4AF37] bg-[#171717] border-[#3A321C]'
+                : 'text-slate-500 bg-white border-slate-200'
+            }`}>
               {filteredServices.length} Cards
             </span>
           </div>
 
           {searchQuery && (
-            <span className="text-xs text-slate-500">
+            <span className={`text-xs ${isDark ? 'text-[#B5B5B5]' : 'text-slate-500'}`}>
               Matching "{searchQuery}"
             </span>
           )}
@@ -296,6 +319,7 @@ export const CategoryWiseServicesSection = ({
                 key={service.id}
                 service={service}
                 isHome={isHome}
+                dark={isDark}
                 onViewDetails={handleOpenDetails}
                 onEnquire={handleOpenInquiry}
               />

@@ -5,12 +5,11 @@ export const ServicesIndex = () => {
   return (
     <div className="w-full">
       {/* Services Directory Hero */}
-      <section className="bg-gradient-to-b from-[#0A192F] via-[#0D2040] to-[#0A192F] text-white py-20 lg:py-24 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600/15 rounded-full blur-3xl pointer-events-none"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-600/15 rounded-full blur-3xl pointer-events-none"></div>
+      <section className="bg-[#0B0B0B] text-white py-20 lg:py-24 relative overflow-hidden">
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-gradient-to-tr from-[#D4AF37]/10 via-[#C9A227]/5 to-transparent rounded-full blur-[120px] pointer-events-none"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <span className="text-xs font-bold text-cyan-400 uppercase tracking-wider bg-slate-800/90 px-4 py-1.5 rounded-full border border-slate-700 shadow-sm inline-block mb-4">
+          <span className="text-xs font-bold text-[#D4AF37] uppercase tracking-wider bg-[#171717] px-4 py-1.5 rounded-full border border-[#3A321C] shadow-sm inline-block mb-4">
             inoviq Integrated Directory
           </span>
 
@@ -18,7 +17,7 @@ export const ServicesIndex = () => {
             All 48+ Services Directory
           </h1>
 
-          <p className="text-slate-300 text-sm sm:text-base max-w-3xl mx-auto mt-4 leading-relaxed">
+          <p className="text-[#B5B5B5] text-sm sm:text-base max-w-3xl mx-auto mt-4 leading-relaxed">
             Explore our comprehensive suite of Graphic Design, Modern Web Development, Digital Services, Marketing Campaigns, and Legal Business Support solutions. Every service includes full details and direct quotation.
           </p>
         </div>

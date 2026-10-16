@@ -71,30 +71,30 @@ export const FAQ = () => {
   });
 
   return (
-    <div className="w-full">
+    <div className="w-full bg-[#0B0B0B]">
       {/* Hero */}
-      <section className="bg-[#0A192F] text-white py-20 relative overflow-hidden">
+      <section className="bg-[#0B0B0B] text-white py-20 relative overflow-hidden border-b border-[#3A321C]/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <span className="text-xs font-bold text-cyan-400 uppercase tracking-wider bg-slate-800 px-3.5 py-1.5 rounded-full border border-slate-700">
+          <span className="text-xs font-bold text-[#D4AF37] uppercase tracking-wider bg-[#171717] px-3.5 py-1.5 rounded-full border border-[#3A321C]">
             Knowledge Base
           </span>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-white mt-4 font-['Outfit']">
             Frequently Asked Questions
           </h1>
-          <p className="text-slate-300 text-sm sm:text-base max-w-xl mx-auto mt-3">
+          <p className="text-[#B5B5B5] text-sm sm:text-base max-w-xl mx-auto mt-3">
             Find immediate answers regarding our project workflows, deliverable formats, technology stack, and business policies.
           </p>
 
           {/* Search Bar */}
           <div className="max-w-md mx-auto mt-8">
             <div className="relative">
-              <Search className="w-5 h-5 text-slate-400 absolute left-4 top-3.5 pointer-events-none" />
+              <Search className="w-5 h-5 text-[#D4AF37] absolute left-4 top-3.5 pointer-events-none" />
               <input
                 type="text"
                 placeholder="Search queries (e.g. Turnaround, MERN, Formats)..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="w-full pl-12 pr-4 py-3 rounded-2xl bg-white/10 border border-slate-700 text-white placeholder-slate-400 text-sm focus:outline-none focus:bg-white/15 focus:ring-2 focus:ring-cyan-400 transition-all backdrop-blur-md"
+                className="w-full pl-12 pr-4 py-3 rounded-2xl bg-[#171717] border border-[#3A321C] text-white placeholder-[#777777] text-sm focus:outline-none focus:ring-2 focus:ring-[#D4AF37] transition-all"
               />
             </div>
           </div>
@@ -102,7 +102,7 @@ export const FAQ = () => {
       </section>
 
       {/* Accordion Content */}
-      <section className="py-16 bg-slate-50">
+      <section className="py-16 bg-[#111111]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Category Tabs */}
           <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
@@ -112,8 +112,8 @@ export const FAQ = () => {
                 onClick={() => setActiveCategory(c)}
                 className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
                   activeCategory === c
-                    ? 'bg-blue-600 text-white shadow-sm'
-                    : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
+                    ? 'bg-gradient-to-r from-[#D4AF37] to-[#C9A227] text-[#0B0B0B] font-bold shadow-md shadow-[#D4AF37]/10'
+                    : 'bg-[#171717] text-[#B5B5B5] hover:text-white hover:bg-[#1f1f1f] border border-[#3A321C]'
                 }`}
               >
                 {c}
@@ -128,22 +128,22 @@ export const FAQ = () => {
               return (
                 <div
                   key={idx}
-                  className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm transition-all"
+                  className="bg-[#171717] rounded-2xl border border-[#3A321C] overflow-hidden shadow-sm transition-all hover:border-[#D4AF37]/50"
                 >
                   <button
                     onClick={() => setActiveIdx(isOpen ? null : idx)}
-                    className="w-full p-5 text-left flex items-center justify-between gap-4 font-bold text-slate-800 hover:text-blue-600 transition-colors"
+                    className="w-full p-5 text-left flex items-center justify-between gap-4 font-bold text-white hover:text-[#D4AF37] transition-colors"
                   >
                     <span className="text-sm sm:text-base font-['Outfit']">{faq.q}</span>
                     <ChevronDown
-                      className={`w-5 h-5 text-slate-400 shrink-0 transition-transform duration-200 ${
-                        isOpen ? 'rotate-180 text-blue-600' : ''
+                      className={`w-5 h-5 shrink-0 transition-transform duration-200 ${
+                        isOpen ? 'rotate-180 text-[#D4AF37]' : 'text-[#888888]'
                       }`}
                     />
                   </button>
 
                   {isOpen && (
-                    <div className="px-5 pb-5 pt-1 text-slate-600 text-xs sm:text-sm leading-relaxed border-t border-slate-100 animate-in fade-in">
+                    <div className="px-5 pb-5 pt-1 text-[#B5B5B5] text-xs sm:text-sm leading-relaxed border-t border-[#3A321C]/60 animate-in fade-in">
                       {faq.a}
                     </div>
                   )}
@@ -153,23 +153,23 @@ export const FAQ = () => {
           </div>
 
           {/* CTA Box */}
-          <div className="mt-14 p-8 rounded-3xl bg-white border border-slate-200 text-center shadow-sm">
-            <h3 className="text-xl font-bold text-slate-900 font-['Outfit'] mb-2">
+          <div className="mt-14 p-8 rounded-3xl bg-[#171717] border border-[#3A321C] text-center shadow-lg">
+            <h3 className="text-xl font-bold text-white font-['Outfit'] mb-2">
               Still have a query not covered here?
             </h3>
-            <p className="text-xs sm:text-sm text-slate-500 max-w-md mx-auto mb-6">
+            <p className="text-xs sm:text-sm text-[#B5B5B5] max-w-md mx-auto mb-6">
               Our customer advisory team is available to discuss your custom project scope via phone, WhatsApp, or email.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-3">
               <Link
                 to="/contact"
-                className="px-6 py-3 rounded-xl bg-blue-600 text-white text-xs font-bold hover:bg-blue-700 transition-colors"
+                className="px-6 py-3 rounded-xl bg-gradient-to-r from-[#D4AF37] to-[#C9A227] hover:from-[#F5E6B3] hover:to-[#D4AF37] text-[#0B0B0B] text-xs font-bold transition-all shadow-md shadow-[#D4AF37]/10"
               >
                 Contact Our Support Desk
               </Link>
               <Link
                 to="/get-a-quote"
-                className="px-6 py-3 rounded-xl bg-slate-100 text-slate-700 text-xs font-semibold hover:bg-slate-200 transition-colors"
+                className="px-6 py-3 rounded-xl bg-[#111111] text-[#E0E0E0] border border-[#3A321C] hover:border-[#D4AF37] hover:text-[#D4AF37] text-xs font-semibold transition-colors"
               >
                 Request Quotation
               </Link>

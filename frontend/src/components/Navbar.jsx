@@ -82,7 +82,7 @@ export const Navbar = () => {
     },
   ];
 
-  const isHomePage = location.pathname === '/';
+  const isHomePage = true;
 
   return (
     <header className="sticky top-0 z-50 w-full transition-all duration-300">
@@ -386,18 +386,22 @@ export const Navbar = () => {
             <div className="space-y-3">
               <NavLink
                 to="/"
-                className={`block px-4 py-3 rounded-xl text-base font-semibold ${
-                  isHomePage ? 'text-[#D4AF37] hover:bg-[#171717]' : 'text-slate-800 hover:bg-slate-50'
-                }`}
+                className={({ isActive }) =>
+                  `block px-4 py-3 rounded-xl text-base font-semibold ${
+                    isActive ? 'text-[#D4AF37] bg-[#3A321C]/40' : 'text-white hover:bg-[#171717] hover:text-[#D4AF37]'
+                  }`
+                }
               >
                 Home
               </NavLink>
 
               <NavLink
                 to="/about"
-                className={`block px-4 py-3 rounded-xl text-base font-semibold ${
-                  isHomePage ? 'text-white hover:bg-[#171717]' : 'text-slate-800 hover:bg-slate-50'
-                }`}
+                className={({ isActive }) =>
+                  `block px-4 py-3 rounded-xl text-base font-semibold ${
+                    isActive ? 'text-[#D4AF37] bg-[#3A321C]/40' : 'text-white hover:bg-[#171717] hover:text-[#D4AF37]'
+                  }`
+                }
               >
                 About Us
               </NavLink>
@@ -407,28 +411,26 @@ export const Navbar = () => {
                 <button
                   onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
                   className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-base font-semibold ${
-                    isHomePage ? 'text-white hover:bg-[#171717]' : 'text-slate-800 hover:bg-slate-50'
+                    location.pathname.startsWith('/services')
+                      ? 'text-[#D4AF37] bg-[#3A321C]/40'
+                      : 'text-white hover:bg-[#171717]'
                   }`}
                 >
                   <span>Services</span>
                   <ChevronDown
                     className={`w-5 h-5 transition-transform ${
                       mobileServicesOpen
-                        ? isHomePage ? 'rotate-180 text-[#D4AF37]' : 'rotate-180 text-blue-600'
+                        ? 'rotate-180 text-[#D4AF37]'
                         : 'text-slate-400'
                     }`}
                   />
                 </button>
 
                 {mobileServicesOpen && (
-                  <div className={`pl-4 pr-2 py-2 space-y-1.5 border-l-2 ml-4 my-1 ${
-                    isHomePage ? 'border-[#D4AF37]' : 'border-blue-500'
-                  }`}>
+                  <div className="pl-4 pr-2 py-2 space-y-1.5 border-l-2 ml-4 my-1 border-[#D4AF37]">
                     <Link
                       to="/services"
-                      className={`block px-3 py-2 text-sm font-bold hover:underline ${
-                        isHomePage ? 'text-[#D4AF37]' : 'text-blue-600'
-                      }`}
+                      className="block px-3 py-2 text-sm font-bold text-[#D4AF37] hover:underline"
                     >
                       All Services Directory →
                     </Link>
@@ -436,11 +438,7 @@ export const Navbar = () => {
                       <Link
                         key={cat.path}
                         to={cat.path}
-                        className={`block px-3 py-2 rounded-lg text-sm font-medium ${
-                          isHomePage
-                            ? 'text-slate-300 hover:bg-[#171717] hover:text-[#D4AF37]'
-                            : 'text-slate-700 hover:bg-slate-100'
-                        }`}
+                        className="block px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:bg-[#171717] hover:text-[#D4AF37]"
                       >
                         {cat.name}
                       </Link>
@@ -451,27 +449,33 @@ export const Navbar = () => {
 
               <NavLink
                 to="/portfolio"
-                className={`block px-4 py-3 rounded-xl text-base font-semibold ${
-                  isHomePage ? 'text-white hover:bg-[#171717]' : 'text-slate-800 hover:bg-slate-50'
-                }`}
+                className={({ isActive }) =>
+                  `block px-4 py-3 rounded-xl text-base font-semibold ${
+                    isActive ? 'text-[#D4AF37] bg-[#3A321C]/40' : 'text-white hover:bg-[#171717] hover:text-[#D4AF37]'
+                  }`
+                }
               >
                 Our Work
               </NavLink>
 
               <NavLink
                 to="/faq"
-                className={`block px-4 py-3 rounded-xl text-base font-semibold ${
-                  isHomePage ? 'text-white hover:bg-[#171717]' : 'text-slate-800 hover:bg-slate-50'
-                }`}
+                className={({ isActive }) =>
+                  `block px-4 py-3 rounded-xl text-base font-semibold ${
+                    isActive ? 'text-[#D4AF37] bg-[#3A321C]/40' : 'text-white hover:bg-[#171717] hover:text-[#D4AF37]'
+                  }`
+                }
               >
                 FAQ
               </NavLink>
 
               <NavLink
                 to="/contact"
-                className={`block px-4 py-3 rounded-xl text-base font-semibold ${
-                  isHomePage ? 'text-white hover:bg-[#171717]' : 'text-slate-800 hover:bg-slate-50'
-                }`}
+                className={({ isActive }) =>
+                  `block px-4 py-3 rounded-xl text-base font-semibold ${
+                    isActive ? 'text-[#D4AF37] bg-[#3A321C]/40' : 'text-white hover:bg-[#171717] hover:text-[#D4AF37]'
+                  }`
+                }
               >
                 Contact Us
               </NavLink>
