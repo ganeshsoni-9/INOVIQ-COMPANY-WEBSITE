@@ -130,19 +130,19 @@ export const AdminPortfolio = () => {
 
   return (
     <div className="space-y-6">
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#3A3018]">
         <div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-['Outfit']">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-white font-['Outfit']">
             Portfolio Projects
           </h2>
-          <p className="text-xs sm:text-sm text-slate-500">
+          <p className="text-xs sm:text-sm text-[#B3B3B3]">
             Showcase demonstration case studies and verified work deliverables.
           </p>
         </div>
 
         <button
           onClick={openAddModal}
-          className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs shadow-md transition-colors"
+          className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#D4AF37] to-[#C9A227] hover:from-[#F5E6B3] hover:to-[#D4AF37] text-[#0B0B0B] font-bold text-xs shadow-md transition-colors"
         >
           <Plus className="w-4 h-4" />
           <span>Add Project</span>
@@ -150,16 +150,16 @@ export const AdminPortfolio = () => {
       </div>
 
       {/* Projects Table */}
-      <div className="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
+      <div className="bg-[#171717] rounded-3xl border border-[#3A3018] shadow-sm overflow-hidden">
         {loading ? (
-          <div className="py-20 text-center text-slate-500">
-            <div className="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-2"></div>
+          <div className="py-20 text-center text-[#B3B3B3]">
+            <div className="w-8 h-8 border-4 border-[#D4AF37] border-t-transparent rounded-full animate-spin mx-auto mb-2"></div>
             <p className="text-xs">Loading projects...</p>
           </div>
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs">
-              <thead className="bg-slate-50 text-slate-500 uppercase tracking-wider text-[10px] font-bold border-b border-slate-200">
+              <thead className="bg-[#111111] text-[#888888] uppercase tracking-wider text-[10px] font-bold border-b border-[#3A3018]">
                 <tr>
                   <th className="py-3.5 px-6">Project Title</th>
                   <th className="py-3.5 px-6">Category</th>
@@ -168,21 +168,21 @@ export const AdminPortfolio = () => {
                   <th className="py-3.5 px-6 text-right">Actions</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100">
+              <tbody className="divide-y divide-[#3A3018]/60">
                 {projects.map((proj) => (
-                  <tr key={proj._id} className="hover:bg-slate-50/80 transition-colors">
+                  <tr key={proj._id} className="hover:bg-[#1a1a1a] transition-colors">
                     <td className="py-4 px-6">
-                      <div className="font-bold text-slate-900">{proj.title}</div>
-                      <div className="text-[11px] text-slate-400 font-mono">/{proj.slug}</div>
+                      <div className="font-bold text-white">{proj.title}</div>
+                      <div className="text-[11px] text-[#888888] font-mono">/{proj.slug}</div>
                     </td>
-                    <td className="py-4 px-6 text-slate-700 font-medium">{proj.category}</td>
-                    <td className="py-4 px-6 text-slate-500">{proj.clientIndustry}</td>
+                    <td className="py-4 px-6 text-[#B3B3B3] font-medium">{proj.category}</td>
+                    <td className="py-4 px-6 text-[#888888]">{proj.clientIndustry}</td>
                     <td className="py-4 px-6">
                       <span
-                        className={`text-[10px] font-bold px-2.5 py-0.5 rounded-full ${
+                        className={`text-[10px] font-bold px-2.5 py-0.5 rounded-full border ${
                           proj.isSample
-                            ? 'bg-amber-50 text-amber-700 border border-amber-200'
-                            : 'bg-emerald-50 text-emerald-700 border border-emerald-200'
+                            ? 'bg-amber-950/60 text-amber-400 border-amber-800/60'
+                            : 'bg-emerald-950/60 text-emerald-400 border-emerald-800/60'
                         }`}
                       >
                         {proj.isSample ? 'Demonstration' : 'Live Client'}
@@ -192,14 +192,14 @@ export const AdminPortfolio = () => {
                       <div className="flex items-center justify-end gap-2">
                         <button
                           onClick={() => openEditModal(proj)}
-                          className="p-1.5 rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-100 transition-colors"
+                          className="p-1.5 rounded-lg bg-[#111111] text-[#D4AF37] border border-[#3A3018] hover:bg-[#3A3018]/50 transition-colors"
                           title="Edit Project"
                         >
                           <Edit className="w-4 h-4" />
                         </button>
                         <button
                           onClick={() => handleDelete(proj._id, proj.title)}
-                          className="p-1.5 rounded-lg bg-rose-50 text-rose-600 hover:bg-rose-100 transition-colors"
+                          className="p-1.5 rounded-lg bg-rose-950/40 text-rose-400 border border-rose-900/40 hover:bg-rose-900/60 transition-colors"
                           title="Delete Project"
                         >
                           <Trash2 className="w-4 h-4" />
@@ -216,15 +216,15 @@ export const AdminPortfolio = () => {
 
       {/* Add / Edit Modal */}
       {modalOpen && (
-        <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
-          <div className="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 border border-slate-200 shadow-2xl my-8">
-            <div className="flex items-center justify-between pb-4 border-b border-slate-100 mb-6">
-              <h3 className="text-xl font-bold text-slate-900 font-['Outfit']">
+        <div className="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+          <div className="bg-[#171717] rounded-3xl max-w-xl w-full p-6 sm:p-8 border border-[#3A3018] shadow-2xl my-8">
+            <div className="flex items-center justify-between pb-4 border-b border-[#3A3018]/60 mb-6">
+              <h3 className="text-xl font-bold text-white font-['Outfit']">
                 {editingProject ? 'Edit Project' : 'Add Project'}
               </h3>
               <button
                 onClick={() => setModalOpen(false)}
-                className="p-1.5 rounded-lg text-slate-400 hover:text-slate-700"
+                className="p-1.5 rounded-lg text-[#888888] hover:text-white"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -232,7 +232,7 @@ export const AdminPortfolio = () => {
 
             <form onSubmit={handleSubmit} className="space-y-4 text-xs">
               <div>
-                <label className="block font-bold text-slate-700 uppercase tracking-wider mb-1">
+                <label className="block font-bold text-[#B3B3B3] uppercase tracking-wider mb-1">
                   Project Title *
                 </label>
                 <input
@@ -240,12 +240,12 @@ export const AdminPortfolio = () => {
                   required
                   value={formData.title}
                   onChange={handleTitleChange}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#3A3018] bg-[#111111] text-white text-sm focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
                 />
               </div>
 
               <div>
-                <label className="block font-bold text-slate-700 uppercase tracking-wider mb-1">
+                <label className="block font-bold text-[#B3B3B3] uppercase tracking-wider mb-1">
                   Slug (URL Path) *
                 </label>
                 <input
@@ -253,19 +253,19 @@ export const AdminPortfolio = () => {
                   required
                   value={formData.slug}
                   onChange={(e) => setFormData({ ...formData, slug: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-sm font-mono focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#3A3018] bg-[#111111] text-white text-sm font-mono focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block font-bold text-slate-700 uppercase tracking-wider mb-1">
+                  <label className="block font-bold text-[#B3B3B3] uppercase tracking-wider mb-1">
                     Domain Category *
                   </label>
                   <select
                     value={formData.categorySlug}
                     onChange={handleCategoryChange}
-                    className="w-full px-3 py-2 rounded-xl border border-slate-200 bg-slate-50 text-xs focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 rounded-xl border border-[#3A3018] bg-[#111111] text-white text-xs focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
                   >
                     <option value="graphic-design">Graphic Design</option>
                     <option value="web-development">Web Development</option>
@@ -276,32 +276,32 @@ export const AdminPortfolio = () => {
                 </div>
 
                 <div>
-                  <label className="block font-bold text-slate-700 uppercase tracking-wider mb-1">
+                  <label className="block font-bold text-[#B3B3B3] uppercase tracking-wider mb-1">
                     Client Industry
                   </label>
                   <input
                     type="text"
                     value={formData.clientIndustry}
                     onChange={(e) => setFormData({ ...formData, clientIndustry: e.target.value })}
-                    className="w-full px-3 py-2 rounded-xl border border-slate-200 bg-slate-50 text-xs focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 rounded-xl border border-[#3A3018] bg-[#111111] text-white text-xs focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block font-bold text-slate-700 uppercase tracking-wider mb-1">
+                <label className="block font-bold text-[#B3B3B3] uppercase tracking-wider mb-1">
                   Image URL
                 </label>
                 <input
                   type="text"
                   value={formData.image}
                   onChange={(e) => setFormData({ ...formData, image: e.target.value })}
-                  className="w-full px-3.5 py-2 rounded-xl border border-slate-200 bg-slate-50 text-xs focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#3A3018] bg-[#111111] text-white text-xs focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
                 />
               </div>
 
               <div>
-                <label className="block font-bold text-slate-700 uppercase tracking-wider mb-1">
+                <label className="block font-bold text-[#B3B3B3] uppercase tracking-wider mb-1">
                   Summary Description *
                 </label>
                 <textarea
@@ -309,31 +309,31 @@ export const AdminPortfolio = () => {
                   required
                   value={formData.description}
                   onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                  className="w-full p-3 rounded-xl border border-slate-200 bg-slate-50 text-xs focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-3 rounded-xl border border-[#3A3018] bg-[#111111] text-white text-xs focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
                 ></textarea>
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block font-bold text-slate-700 uppercase tracking-wider mb-1">
+                  <label className="block font-bold text-[#B3B3B3] uppercase tracking-wider mb-1">
                     Client Challenge
                   </label>
                   <textarea
                     rows={2}
                     value={formData.challenge}
                     onChange={(e) => setFormData({ ...formData, challenge: e.target.value })}
-                    className="w-full p-2.5 rounded-xl border border-slate-200 bg-slate-50 text-xs focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full p-2.5 rounded-xl border border-[#3A3018] bg-[#111111] text-white text-xs focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
                   ></textarea>
                 </div>
                 <div>
-                  <label className="block font-bold text-slate-700 uppercase tracking-wider mb-1">
+                  <label className="block font-bold text-[#B3B3B3] uppercase tracking-wider mb-1">
                     Our Solution
                   </label>
                   <textarea
                     rows={2}
                     value={formData.solution}
                     onChange={(e) => setFormData({ ...formData, solution: e.target.value })}
-                    className="w-full p-2.5 rounded-xl border border-slate-200 bg-slate-50 text-xs focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full p-2.5 rounded-xl border border-[#3A3018] bg-[#111111] text-white text-xs focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
                   ></textarea>
                 </div>
               </div>
@@ -344,24 +344,24 @@ export const AdminPortfolio = () => {
                   id="sampleCheck"
                   checked={formData.isSample}
                   onChange={(e) => setFormData({ ...formData, isSample: e.target.checked })}
-                  className="rounded text-blue-600 focus:ring-blue-500"
+                  className="rounded text-[#D4AF37] focus:ring-[#D4AF37] bg-[#111111] border-[#3A3018]"
                 />
-                <label htmlFor="sampleCheck" className="text-xs font-semibold text-slate-700 cursor-pointer">
+                <label htmlFor="sampleCheck" className="text-xs font-semibold text-[#B3B3B3] cursor-pointer">
                   Label as Demonstration Project (Per transparency standards)
                 </label>
               </div>
 
-              <div className="pt-4 flex gap-3 border-t border-slate-100">
+              <div className="pt-4 flex gap-3 border-t border-[#3A3018]/60">
                 <button
                   type="button"
                   onClick={() => setModalOpen(false)}
-                  className="flex-1 py-2.5 rounded-xl border border-slate-200 text-xs font-semibold text-slate-700 hover:bg-slate-50"
+                  className="flex-1 py-2.5 rounded-xl border border-[#3A3018] text-xs font-semibold text-[#B3B3B3] hover:bg-[#222222]"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="flex-1 py-2.5 rounded-xl bg-blue-600 text-white text-xs font-bold hover:bg-blue-700 shadow-md"
+                  className="flex-1 py-2.5 rounded-xl bg-gradient-to-r from-[#D4AF37] to-[#C9A227] hover:from-[#F5E6B3] hover:to-[#D4AF37] text-[#0B0B0B] text-xs font-bold shadow-md"
                 >
                   Save Project
                 </button>

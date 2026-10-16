@@ -57,22 +57,22 @@ export const AdminLogin = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#0A192F] flex flex-col justify-center py-12 sm:px-6 lg:px-8 relative overflow-hidden">
+    <div className="min-h-screen bg-[#0B0B0B] flex flex-col justify-center py-12 sm:px-6 lg:px-8 relative overflow-hidden">
       {/* Background glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-600/15 rounded-full blur-[100px] pointer-events-none"></div>
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#D4AF37]/10 rounded-full blur-[100px] pointer-events-none"></div>
 
       <div className="sm:mx-auto sm:w-full sm:max-w-md relative z-10 text-center">
         <Logo variant="dark" className="justify-center mb-6" />
         <h2 className="text-2xl sm:text-3xl font-extrabold text-white font-['Outfit']">
           Administrator Portal
         </h2>
-        <p className="mt-2 text-xs sm:text-sm text-slate-400">
+        <p className="mt-2 text-xs sm:text-sm text-[#B3B3B3]">
           Sign in to access inquiry management, analytics, and content controls.
         </p>
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md relative z-10 px-4 sm:px-0">
-        <div className="bg-slate-900/90 border border-slate-800 rounded-3xl p-8 shadow-2xl backdrop-blur-xl">
+        <div className="bg-[#171717] border border-[#3A3018] rounded-3xl p-8 shadow-2xl backdrop-blur-xl">
           {error && (
             <div className="mb-6 p-4 rounded-2xl bg-rose-950/60 border border-rose-800/80 text-rose-300 text-xs sm:text-sm flex items-start gap-3">
               <AlertCircle className="w-5 h-5 shrink-0 text-rose-400 mt-0.5" />
@@ -82,35 +82,35 @@ export const AdminLogin = () => {
 
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
-              <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">
+              <label className="block text-xs font-bold text-[#B3B3B3] uppercase tracking-wider mb-2">
                 Administrator Email
               </label>
               <div className="relative">
-                <Mail className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5 pointer-events-none" />
+                <Mail className="w-4 h-4 text-[#888888] absolute left-3.5 top-3.5 pointer-events-none" />
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="admin@INOVIQglobal.com"
                   required
-                  className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                  className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#111111] border border-[#3A3018] text-white placeholder-[#888888] text-sm focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent transition-all"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">
+              <label className="block text-xs font-bold text-[#B3B3B3] uppercase tracking-wider mb-2">
                 Master Password
               </label>
               <div className="relative">
-                <Lock className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5 pointer-events-none" />
+                <Lock className="w-4 h-4 text-[#888888] absolute left-3.5 top-3.5 pointer-events-none" />
                 <input
                   type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••••••"
                   required
-                  className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                  className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#111111] border border-[#3A3018] text-white placeholder-[#888888] text-sm focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent transition-all"
                 />
               </div>
             </div>
@@ -118,7 +118,7 @@ export const AdminLogin = () => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3.5 px-4 rounded-xl font-bold text-white bg-blue-600 hover:bg-blue-500 shadow-lg transition-all flex items-center justify-center gap-2 text-sm disabled:opacity-70 disabled:cursor-not-allowed mt-2"
+              className="w-full py-3.5 px-4 rounded-xl font-bold text-[#0B0B0B] bg-gradient-to-r from-[#D4AF37] to-[#C9A227] hover:from-[#F5E6B3] hover:to-[#D4AF37] shadow-lg transition-all flex items-center justify-center gap-2 text-sm disabled:opacity-70 disabled:cursor-not-allowed mt-2"
             >
               {loading ? (
                 <>
@@ -135,28 +135,28 @@ export const AdminLogin = () => {
           </form>
 
           {/* Quick Demo Helper */}
-          <div className="mt-8 pt-6 border-t border-slate-800 text-center">
-            <div className="p-4 rounded-2xl bg-slate-800/60 border border-slate-700/80 text-left mb-4">
+          <div className="mt-8 pt-6 border-t border-[#3A3018] text-center">
+            <div className="p-4 rounded-2xl bg-[#111111] border border-[#3A3018] text-left mb-4">
               <div className="flex items-center justify-between mb-1.5">
-                <span className="text-[11px] font-bold text-cyan-400 uppercase tracking-wider flex items-center gap-1.5">
+                <span className="text-[11px] font-bold text-[#D4AF37] uppercase tracking-wider flex items-center gap-1.5">
                   <KeyRound className="w-3.5 h-3.5" />
                   <span>Initial Admin Credentials</span>
                 </span>
                 <button
                   type="button"
                   onClick={fillDemoCredentials}
-                  className="text-[11px] font-bold text-blue-400 hover:text-blue-300 underline"
+                  className="text-[11px] font-bold text-[#D4AF37] hover:text-[#F5E6B3] underline"
                 >
                   Auto-fill
                 </button>
               </div>
-              <div className="text-[11px] font-mono text-slate-300 space-y-0.5">
+              <div className="text-[11px] font-mono text-[#B3B3B3] space-y-0.5">
                 <div>Email: <span className="text-white">admin@INOVIQglobal.com</span></div>
                 <div>Pass: <span className="text-white">INOVIQAdmin@2026</span></div>
               </div>
             </div>
 
-            <Link to="/" className="text-xs text-slate-400 hover:text-white transition-colors">
+            <Link to="/" className="text-xs text-[#888888] hover:text-[#D4AF37] transition-colors">
               ← Return to Public Website
             </Link>
           </div>

@@ -138,7 +138,7 @@ export const AdminSettings = () => {
 
   if (loading) {
     return (
-      <div className="py-20 text-center text-slate-500">
+      <div className="py-20 text-center text-[#B3B3B3]">
         <p className="text-xs">Loading configuration...</p>
       </div>
     );
@@ -146,20 +146,20 @@ export const AdminSettings = () => {
 
   return (
     <div className="space-y-6 max-w-4xl mx-auto">
-      <div className="pb-4 border-b border-slate-200">
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-['Outfit']">
+      <div className="pb-4 border-b border-[#3A3018]">
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-white font-['Outfit']">
           Site Settings & Company Profile
         </h2>
 
-        <p className="text-xs sm:text-sm text-slate-500">
+        <p className="text-xs sm:text-sm text-[#B3B3B3]">
           Configure contact details, address, notification emails,
           social links, and header announcement bar.
         </p>
       </div>
 
       {successMsg && (
-        <div className="p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold flex items-center gap-2">
-          <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+        <div className="p-4 rounded-2xl bg-emerald-950/60 border border-emerald-800/80 text-emerald-300 text-xs font-semibold flex items-center gap-2">
+          <CheckCircle2 className="w-4 h-4 text-emerald-400" />
           <span>{successMsg}</span>
         </div>
       )}
@@ -167,7 +167,7 @@ export const AdminSettings = () => {
       {errorMsg && (
         <div
           role="alert"
-          className="p-4 rounded-2xl bg-red-50 border border-red-200 text-red-700 text-xs font-semibold"
+          className="p-4 rounded-2xl bg-rose-950/60 border border-rose-800/80 text-rose-300 text-xs font-semibold"
         >
           {errorMsg}
         </div>
@@ -175,14 +175,14 @@ export const AdminSettings = () => {
 
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Company Information */}
-        <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-4">
-          <h3 className="text-base font-bold text-slate-900 font-['Outfit'] border-b border-slate-100 pb-3">
+        <div className="bg-[#171717] p-6 sm:p-8 rounded-3xl border border-[#3A3018] shadow-sm space-y-4">
+          <h3 className="text-base font-bold text-white font-['Outfit'] border-b border-[#3A3018]/60 pb-3">
             Company Information
           </h3>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
             <div>
-              <label className="block font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+              <label className="block font-bold text-[#B3B3B3] uppercase tracking-wider mb-1.5">
                 Company Legal Name
               </label>
               <input
@@ -190,12 +190,12 @@ export const AdminSettings = () => {
                 name="companyName"
                 value={settings.companyName}
                 onChange={handleChange}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 font-semibold"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#3A3018] bg-[#111111] text-white focus:outline-none focus:ring-2 focus:ring-[#D4AF37] font-semibold"
               />
             </div>
 
             <div>
-              <label className="block font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+              <label className="block font-bold text-[#B3B3B3] uppercase tracking-wider mb-1.5">
                 Brand Tagline
               </label>
               <input
@@ -203,12 +203,12 @@ export const AdminSettings = () => {
                 name="tagline"
                 value={settings.tagline}
                 onChange={handleChange}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#3A3018] bg-[#111111] text-white focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
               />
             </div>
 
             <div>
-              <label className="block font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+              <label className="block font-bold text-[#B3B3B3] uppercase tracking-wider mb-1.5">
                 Official Email
               </label>
               <input
@@ -216,12 +216,12 @@ export const AdminSettings = () => {
                 name="companyEmail"
                 value={settings.companyEmail}
                 onChange={handleChange}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#3A3018] bg-[#111111] text-white focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
               />
             </div>
 
             <div>
-              <label className="block font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+              <label className="block font-bold text-[#B3B3B3] uppercase tracking-wider mb-1.5">
                 Inquiry Email
               </label>
               <input
@@ -229,12 +229,12 @@ export const AdminSettings = () => {
                 name="inquiryEmail"
                 value={settings.inquiryEmail}
                 onChange={handleChange}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#3A3018] bg-[#111111] text-white focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
               />
             </div>
 
             <div>
-              <label className="block font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+              <label className="block font-bold text-[#B3B3B3] uppercase tracking-wider mb-1.5">
                 Telephone Hotline
               </label>
               <input
@@ -242,12 +242,12 @@ export const AdminSettings = () => {
                 name="companyPhone"
                 value={settings.companyPhone}
                 onChange={handleChange}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#3A3018] bg-[#111111] text-white focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
               />
             </div>
 
             <div>
-              <label className="block font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+              <label className="block font-bold text-[#B3B3B3] uppercase tracking-wider mb-1.5">
                 WhatsApp Business Number
               </label>
               <input
@@ -255,12 +255,12 @@ export const AdminSettings = () => {
                 name="whatsappNumber"
                 value={settings.whatsappNumber}
                 onChange={handleChange}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#3A3018] bg-[#111111] text-white focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
               />
             </div>
 
             <div>
-              <label className="block font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+              <label className="block font-bold text-[#B3B3B3] uppercase tracking-wider mb-1.5">
                 Office Hours
               </label>
               <input
@@ -268,12 +268,12 @@ export const AdminSettings = () => {
                 name="officeHours"
                 value={settings.officeHours}
                 onChange={handleChange}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#3A3018] bg-[#111111] text-white focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
               />
             </div>
 
             <div className="sm:col-span-2">
-              <label className="block font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+              <label className="block font-bold text-[#B3B3B3] uppercase tracking-wider mb-1.5">
                 Registered Physical Address
               </label>
               <textarea
@@ -281,21 +281,21 @@ export const AdminSettings = () => {
                 rows={3}
                 value={settings.address}
                 onChange={handleChange}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#3A3018] bg-[#111111] text-white focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
               />
             </div>
           </div>
         </div>
 
         {/* Social Links */}
-        <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-4">
-          <h3 className="text-base font-bold text-slate-900 font-['Outfit'] border-b border-slate-100 pb-3">
+        <div className="bg-[#171717] p-6 sm:p-8 rounded-3xl border border-[#3A3018] shadow-sm space-y-4">
+          <h3 className="text-base font-bold text-white font-['Outfit'] border-b border-[#3A3018]/60 pb-3">
             Social Media Links
           </h3>
 
           {Object.entries(settings.socialLinks).map(([platform, url]) => (
             <div key={platform}>
-              <label className="block font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+              <label className="block font-bold text-[#B3B3B3] uppercase tracking-wider mb-1.5 capitalize">
                 {platform}
               </label>
               <input
@@ -303,15 +303,15 @@ export const AdminSettings = () => {
                 name={platform}
                 value={url}
                 onChange={handleSocialChange}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#3A3018] bg-[#111111] text-white focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
               />
             </div>
           ))}
         </div>
 
         {/* Announcement Bar */}
-        <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-4">
-          <h3 className="text-base font-bold text-slate-900 font-['Outfit'] border-b border-slate-100 pb-3">
+        <div className="bg-[#171717] p-6 sm:p-8 rounded-3xl border border-[#3A3018] shadow-sm space-y-4">
+          <h3 className="text-base font-bold text-white font-['Outfit'] border-b border-[#3A3018]/60 pb-3">
             Top Announcement Bar
           </h3>
 
@@ -323,18 +323,18 @@ export const AdminSettings = () => {
                 name="enabled"
                 checked={Boolean(settings.announcementBar?.enabled)}
                 onChange={handleAnnouncementChange}
-                className="rounded text-blue-600 focus:ring-blue-500"
+                className="rounded text-[#D4AF37] focus:ring-[#D4AF37] bg-[#111111] border-[#3A3018]"
               />
               <label
                 htmlFor="annCheck"
-                className="font-semibold text-slate-800 cursor-pointer"
+                className="font-semibold text-white cursor-pointer"
               >
                 Display announcement strip on public pages
               </label>
             </div>
 
             <div>
-              <label className="block font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+              <label className="block font-bold text-[#B3B3B3] uppercase tracking-wider mb-1.5">
                 Announcement Message
               </label>
               <input
@@ -342,13 +342,13 @@ export const AdminSettings = () => {
                 name="text"
                 value={settings.announcementBar?.text || ''}
                 onChange={handleAnnouncementChange}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-[#3A3018] bg-[#111111] text-white focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
               />
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                <label className="block font-bold text-[#B3B3B3] uppercase tracking-wider mb-1.5">
                   CTA Button Text
                 </label>
                 <input
@@ -356,12 +356,12 @@ export const AdminSettings = () => {
                   name="ctaText"
                   value={settings.announcementBar?.ctaText || ''}
                   onChange={handleAnnouncementChange}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#3A3018] bg-[#111111] text-white focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
                 />
               </div>
 
               <div>
-                <label className="block font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                <label className="block font-bold text-[#B3B3B3] uppercase tracking-wider mb-1.5">
                   CTA Link
                 </label>
                 <input
@@ -369,7 +369,7 @@ export const AdminSettings = () => {
                   name="ctaLink"
                   value={settings.announcementBar?.ctaLink || ''}
                   onChange={handleAnnouncementChange}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#3A3018] bg-[#111111] text-white focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
                 />
               </div>
             </div>
@@ -379,7 +379,7 @@ export const AdminSettings = () => {
         <button
           type="submit"
           disabled={saving}
-          className="px-8 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 disabled:opacity-60 disabled:cursor-not-allowed text-white font-bold text-xs shadow-md transition-colors flex items-center justify-center gap-2"
+          className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#D4AF37] to-[#C9A227] hover:from-[#F5E6B3] hover:to-[#D4AF37] disabled:opacity-60 disabled:cursor-not-allowed text-[#0B0B0B] font-bold text-xs shadow-md transition-colors flex items-center justify-center gap-2"
         >
           <Save className="w-4 h-4" />
           <span>{saving ? 'Updating...' : 'Save All Settings'}</span>

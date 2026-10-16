@@ -161,19 +161,19 @@ export const AdminServices = () => {
 
   return (
     <div className="space-y-6">
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#3A3018]">
         <div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-['Outfit']">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-white font-['Outfit']">
             Catalogued Services
           </h2>
-          <p className="text-xs sm:text-sm text-slate-500">
+          <p className="text-xs sm:text-sm text-[#B3B3B3]">
             Database-backed management for all {services.length} services.
           </p>
         </div>
 
         <button
           onClick={openAddModal}
-          className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs shadow-md transition-colors"
+          className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#D4AF37] to-[#C9A227] hover:from-[#F5E6B3] hover:to-[#D4AF37] text-[#0B0B0B] font-bold text-xs shadow-md transition-colors"
         >
           <Plus className="w-4 h-4" />
           <span>Add New Service</span>
@@ -193,10 +193,10 @@ export const AdminServices = () => {
           <button
             key={c.id}
             onClick={() => setCategoryFilter(c.id)}
-            className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all ${
+            className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all border ${
               categoryFilter === c.id
-                ? 'bg-blue-600 text-white shadow-sm'
-                : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
+                ? 'bg-[#3A3018]/60 text-[#D4AF37] border-[#D4AF37]/40 shadow-sm'
+                : 'bg-[#171717] text-[#B3B3B3] hover:text-white hover:bg-[#222222] border-[#3A3018]'
             }`}
           >
             {c.label}
@@ -205,16 +205,16 @@ export const AdminServices = () => {
       </div>
 
       {/* Services Table */}
-      <div className="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
+      <div className="bg-[#171717] rounded-3xl border border-[#3A3018] shadow-sm overflow-hidden">
         {loading ? (
-          <div className="py-20 text-center text-slate-500">
-            <div className="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-2"></div>
+          <div className="py-20 text-center text-[#B3B3B3]">
+            <div className="w-8 h-8 border-4 border-[#D4AF37] border-t-transparent rounded-full animate-spin mx-auto mb-2"></div>
             <p className="text-xs">Loading service directory...</p>
           </div>
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs">
-              <thead className="bg-slate-50 text-slate-500 uppercase tracking-wider text-[10px] font-bold border-b border-slate-200">
+              <thead className="bg-[#111111] text-[#888888] uppercase tracking-wider text-[10px] font-bold border-b border-[#3A3018]">
                 <tr>
                   <th className="py-3.5 px-6">Service Title</th>
                   <th className="py-3.5 px-6">Category</th>
@@ -223,35 +223,35 @@ export const AdminServices = () => {
                   <th className="py-3.5 px-6 text-right">Actions</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100">
+              <tbody className="divide-y divide-[#3A3018]/60">
                 {filtered.map((service) => (
-                  <tr key={service._id} className="hover:bg-slate-50/80 transition-colors">
-                    <td className="py-3.5 px-6 font-bold text-slate-900">
+                  <tr key={service._id} className="hover:bg-[#1a1a1a] transition-colors">
+                    <td className="py-3.5 px-6 font-bold text-white">
                       {service.title}
                     </td>
-                    <td className="py-3.5 px-6 text-slate-600">
+                    <td className="py-3.5 px-6 text-[#B3B3B3]">
                       {service.categoryName}
                     </td>
-                    <td className="py-3.5 px-6 font-mono text-[11px] text-slate-400">
+                    <td className="py-3.5 px-6 font-mono text-[11px] text-[#888888]">
                       {service.slug}
                     </td>
                     <td className="py-3.5 px-6">
                       <button
                         onClick={() => togglePublished(service)}
-                        className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full font-bold text-[10px] transition-colors ${
+                        className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full font-bold text-[10px] border transition-colors ${
                           service.isPublished
-                            ? 'bg-emerald-50 text-emerald-700 hover:bg-emerald-100'
-                            : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
+                            ? 'bg-emerald-950/60 text-emerald-400 border-emerald-800/60 hover:bg-emerald-900/40'
+                            : 'bg-[#111111] text-[#888888] border-[#3A3018] hover:bg-[#1a1a1a]'
                         }`}
                       >
                         {service.isPublished ? (
                           <>
-                            <CheckCircle className="w-3 h-3 text-emerald-600" />
+                            <CheckCircle className="w-3 h-3 text-emerald-400" />
                             <span>Published</span>
                           </>
                         ) : (
                           <>
-                            <XCircle className="w-3 h-3 text-slate-400" />
+                            <XCircle className="w-3 h-3 text-[#888888]" />
                             <span>Draft</span>
                           </>
                         )}
@@ -261,14 +261,14 @@ export const AdminServices = () => {
                       <div className="flex items-center justify-end gap-2">
                         <button
                           onClick={() => openEditModal(service)}
-                          className="p-1.5 rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-100 transition-colors"
+                          className="p-1.5 rounded-lg bg-[#111111] text-[#D4AF37] border border-[#3A3018] hover:bg-[#3A3018]/50 transition-colors"
                           title="Edit Service"
                         >
                           <Edit className="w-4 h-4" />
                         </button>
                         <button
                           onClick={() => handleDelete(service._id, service.title)}
-                          className="p-1.5 rounded-lg bg-rose-50 text-rose-600 hover:bg-rose-100 transition-colors"
+                          className="p-1.5 rounded-lg bg-rose-950/40 text-rose-400 border border-rose-900/40 hover:bg-rose-900/60 transition-colors"
                           title="Delete Service"
                         >
                           <Trash2 className="w-4 h-4" />
@@ -285,15 +285,15 @@ export const AdminServices = () => {
 
       {/* Add / Edit Service Modal */}
       {modalOpen && (
-        <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
-          <div className="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 border border-slate-200 shadow-2xl my-8">
-            <div className="flex items-center justify-between pb-4 border-b border-slate-100 mb-6">
-              <h3 className="text-xl font-bold text-slate-900 font-['Outfit']">
+        <div className="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+          <div className="bg-[#171717] rounded-3xl max-w-xl w-full p-6 sm:p-8 border border-[#3A3018] shadow-2xl my-8">
+            <div className="flex items-center justify-between pb-4 border-b border-[#3A3018]/60 mb-6">
+              <h3 className="text-xl font-bold text-white font-['Outfit']">
                 {editingService ? 'Edit Service' : 'Add New Service'}
               </h3>
               <button
                 onClick={() => setModalOpen(false)}
-                className="p-1.5 rounded-lg text-slate-400 hover:text-slate-700"
+                className="p-1.5 rounded-lg text-[#888888] hover:text-white"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -301,7 +301,7 @@ export const AdminServices = () => {
 
             <form onSubmit={handleSubmit} className="space-y-4 text-xs">
               <div>
-                <label className="block font-bold text-slate-700 uppercase tracking-wider mb-1">
+                <label className="block font-bold text-[#B3B3B3] uppercase tracking-wider mb-1">
                   Service Title *
                 </label>
                 <input
@@ -309,12 +309,12 @@ export const AdminServices = () => {
                   required
                   value={formData.title}
                   onChange={handleTitleChange}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#3A3018] bg-[#111111] text-white text-sm focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
                 />
               </div>
 
               <div>
-                <label className="block font-bold text-slate-700 uppercase tracking-wider mb-1">
+                <label className="block font-bold text-[#B3B3B3] uppercase tracking-wider mb-1">
                   Slug (URL Path) *
                 </label>
                 <input
@@ -322,18 +322,18 @@ export const AdminServices = () => {
                   required
                   value={formData.slug}
                   onChange={(e) => setFormData({ ...formData, slug: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-sm font-mono focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#3A3018] bg-[#111111] text-white text-sm font-mono focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
                 />
               </div>
 
               <div>
-                <label className="block font-bold text-slate-700 uppercase tracking-wider mb-1">
+                <label className="block font-bold text-[#B3B3B3] uppercase tracking-wider mb-1">
                   Service Category *
                 </label>
                 <select
                   value={formData.category}
                   onChange={handleCategoryChange}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#3A3018] bg-[#111111] text-white text-sm focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
                 >
                   <option value="graphic-design">Graphic Design Services</option>
                   <option value="web-development">Web Development Services</option>
@@ -344,7 +344,7 @@ export const AdminServices = () => {
               </div>
 
               <div>
-                <label className="block font-bold text-slate-700 uppercase tracking-wider mb-1">
+                <label className="block font-bold text-[#B3B3B3] uppercase tracking-wider mb-1">
                   Short Description *
                 </label>
                 <textarea
@@ -352,12 +352,12 @@ export const AdminServices = () => {
                   required
                   value={formData.shortDescription}
                   onChange={(e) => setFormData({ ...formData, shortDescription: e.target.value })}
-                  className="w-full p-3 rounded-xl border border-slate-200 bg-slate-50 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-3 rounded-xl border border-[#3A3018] bg-[#111111] text-white text-sm focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
                 ></textarea>
               </div>
 
               <div>
-                <label className="block font-bold text-slate-700 uppercase tracking-wider mb-1">
+                <label className="block font-bold text-[#B3B3B3] uppercase tracking-wider mb-1">
                   Benefits / Deliverables (One per line)
                 </label>
                 <textarea
@@ -365,7 +365,7 @@ export const AdminServices = () => {
                   value={formData.benefits}
                   onChange={(e) => setFormData({ ...formData, benefits: e.target.value })}
                   placeholder="Benefit 1&#10;Benefit 2&#10;Benefit 3"
-                  className="w-full p-3 rounded-xl border border-slate-200 bg-slate-50 text-xs focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono"
+                  className="w-full p-3 rounded-xl border border-[#3A3018] bg-[#111111] text-white text-xs placeholder-[#888888] focus:outline-none focus:ring-2 focus:ring-[#D4AF37] font-mono"
                 ></textarea>
               </div>
 
@@ -375,24 +375,24 @@ export const AdminServices = () => {
                   id="pubCheck"
                   checked={formData.isPublished}
                   onChange={(e) => setFormData({ ...formData, isPublished: e.target.checked })}
-                  className="rounded text-blue-600 focus:ring-blue-500"
+                  className="rounded text-[#D4AF37] focus:ring-[#D4AF37] bg-[#111111] border-[#3A3018]"
                 />
-                <label htmlFor="pubCheck" className="text-xs font-semibold text-slate-700 cursor-pointer">
+                <label htmlFor="pubCheck" className="text-xs font-semibold text-[#B3B3B3] cursor-pointer">
                   Publish on live website
                 </label>
               </div>
 
-              <div className="pt-4 flex gap-3 border-t border-slate-100">
+              <div className="pt-4 flex gap-3 border-t border-[#3A3018]/60">
                 <button
                   type="button"
                   onClick={() => setModalOpen(false)}
-                  className="flex-1 py-2.5 rounded-xl border border-slate-200 text-xs font-semibold text-slate-700 hover:bg-slate-50"
+                  className="flex-1 py-2.5 rounded-xl border border-[#3A3018] text-xs font-semibold text-[#B3B3B3] hover:bg-[#222222]"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="flex-1 py-2.5 rounded-xl bg-blue-600 text-white text-xs font-bold hover:bg-blue-700 shadow-md"
+                  className="flex-1 py-2.5 rounded-xl bg-gradient-to-r from-[#D4AF37] to-[#C9A227] hover:from-[#F5E6B3] hover:to-[#D4AF37] text-[#0B0B0B] text-xs font-bold shadow-md"
                 >
                   Save Service
                 </button>
