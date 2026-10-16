@@ -173,26 +173,26 @@ export const Home = () => {
   return (
     <div className="w-full">
       {/* ================= HERO SECTION ================= */}
-      <section className="relative overflow-hidden bg-[#0A192F] text-white pt-16 pb-24 lg:pt-24 lg:pb-32">
+      <section className="relative overflow-hidden bg-[#0B0B0B] text-white pt-16 pb-24 lg:pt-24 lg:pb-32">
         {/* Glow Effects */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-gradient-to-tr from-blue-600/20 via-cyan-500/15 to-purple-600/10 rounded-full blur-[120px] pointer-events-none animate-pulse-glow"></div>
-        <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-500/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-gradient-to-tr from-[#D4AF37]/15 via-[#C9A227]/10 to-[#F5E6B3]/5 rounded-full blur-[120px] pointer-events-none animate-pulse-glow"></div>
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-[#D4AF37]/10 rounded-full blur-3xl pointer-events-none"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 border border-slate-700/80 text-cyan-400 text-xs sm:text-sm font-semibold shadow-inner">
-                <Sparkles className="w-4 h-4 text-cyan-400" />
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#171717] border border-[#3A321C] text-[#D4AF37] text-xs sm:text-sm font-semibold shadow-inner">
+                <Sparkles className="w-4 h-4 text-[#D4AF37]" />
                 <span>Premier Digital & Business Solutions</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight font-['Outfit'] leading-[1.12]">
                 Ideas Into Impact. <br />
-                <span className="text-gradient-blue">Digital Solutions</span> That Grow Your Business.
+                <span className="text-gradient-gold">Digital Solutions</span> That Grow Your Business.
               </h1>
 
-              <p className="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
+              <p className="text-[#B5B5B5] text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
                 INOVIQ GLOBAL PVT. LTD. empowers forward-thinking enterprises with high-caliber Graphic Design, modern MERN Web Applications, Organic Digital Visibility, Performance Marketing, and Essential Business Support.
               </p>
 
@@ -200,7 +200,7 @@ export const Home = () => {
               <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
                 <Link
                   to="/get-a-quote"
-                  className="w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-white bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 shadow-xl hover:shadow-blue-500/25 hover:from-blue-700 hover:to-indigo-800 transition-all duration-200 flex items-center justify-center gap-2 hover:-translate-y-0.5"
+                  className="w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-[#0B0B0B] bg-gradient-to-r from-[#D4AF37] via-[#C9A227] to-[#B38F20] shadow-xl hover:shadow-[#D4AF37]/25 hover:from-[#C9A227] hover:to-[#A68018] transition-all duration-200 flex items-center justify-center gap-2 hover:-translate-y-0.5"
                 >
                   <span>Get a Free Consultation</span>
                   <ArrowRight className="w-4 h-4" />
@@ -208,25 +208,25 @@ export const Home = () => {
 
                 <Link
                   to="/services"
-                  className="w-full sm:w-auto px-8 py-4 rounded-xl font-semibold text-slate-200 bg-slate-800/80 hover:bg-slate-800 border border-slate-700 hover:text-white transition-all duration-200 flex items-center justify-center gap-2"
+                  className="w-full sm:w-auto px-8 py-4 rounded-xl font-semibold text-white bg-[#171717] hover:bg-[#222222] border border-[#3A321C] transition-all duration-200 flex items-center justify-center gap-2"
                 >
                   <span>Explore Our Services</span>
                 </Link>
               </div>
 
               {/* Quick Trust Highlights */}
-              <div className="pt-6 grid grid-cols-3 gap-4 border-t border-slate-800/80 text-left max-w-lg mx-auto lg:mx-0">
+              <div className="pt-6 grid grid-cols-3 gap-4 border-t border-[#3A321C] text-left max-w-lg mx-auto lg:mx-0">
                 <div>
                   <div className="text-xl sm:text-2xl font-bold text-white font-['Outfit']">5 Core</div>
-                  <div className="text-xs text-slate-400">Integrated Domains</div>
+                  <div className="text-xs text-[#B5B5B5]">Integrated Domains</div>
                 </div>
                 <div>
-                  <div className="text-xl sm:text-2xl font-bold text-cyan-400 font-['Outfit']">48+</div>
-                  <div className="text-xs text-slate-400">Catalogued Services</div>
+                  <div className="text-xl sm:text-2xl font-bold text-[#D4AF37] font-['Outfit']">48+</div>
+                  <div className="text-xs text-[#B5B5B5]">Catalogued Services</div>
                 </div>
                 <div>
-                  <div className="text-xl sm:text-2xl font-bold text-blue-400 font-['Outfit']">100%</div>
-                  <div className="text-xs text-slate-400">Quality Execution</div>
+                  <div className="text-xl sm:text-2xl font-bold text-[#D4AF37] font-['Outfit']">100%</div>
+                  <div className="text-xs text-[#B5B5B5]">Quality Execution</div>
                 </div>
               </div>
             </div>
@@ -235,65 +235,65 @@ export const Home = () => {
             <div className="lg:col-span-5 relative flex justify-center">
               <div className="relative w-full max-w-md">
                 {/* Floating Central Glass Card */}
-                <div className="relative bg-gradient-to-b from-slate-900/90 to-[#0A192F]/90 border border-slate-700/80 rounded-3xl p-6 sm:p-8 shadow-2xl backdrop-blur-xl">
+                <div className="relative bg-gradient-to-b from-[#171717] to-[#111111] border border-[#3A321C] rounded-3xl p-6 sm:p-8 shadow-2xl backdrop-blur-xl">
                   {/* Window Controls */}
-                  <div className="flex items-center justify-between pb-4 border-b border-slate-800 mb-6">
+                  <div className="flex items-center justify-between pb-4 border-b border-[#3A321C] mb-6">
                     <div className="flex items-center gap-2">
                       <span className="w-3 h-3 rounded-full bg-rose-500"></span>
                       <span className="w-3 h-3 rounded-full bg-amber-500"></span>
                       <span className="w-3 h-3 rounded-full bg-emerald-500"></span>
                     </div>
-                    <span className="text-[11px] font-mono text-slate-400">INOVIQ-ecosystem.js</span>
+                    <span className="text-[11px] font-mono text-[#B5B5B5]">INOVIQ-ecosystem.js</span>
                   </div>
 
                   {/* Core Services Visual List */}
                   <div className="space-y-3">
-                    <div className="p-3.5 rounded-2xl bg-slate-800/60 border border-slate-700/50 flex items-center gap-3">
-                      <div className="p-2 rounded-xl bg-purple-500/20 text-purple-400">
+                    <div className="p-3.5 rounded-2xl bg-[#171717] border border-[#3A321C] flex items-center gap-3">
+                      <div className="p-2 rounded-xl bg-[#D4AF37]/15 text-[#D4AF37]">
                         <Palette className="w-5 h-5" />
                       </div>
                       <div className="flex-1">
                         <div className="text-xs font-bold text-white">Visual Identity & 3D</div>
-                        <div className="text-[10px] text-slate-400">20+ graphic & packaging services</div>
+                        <div className="text-[10px] text-[#B5B5B5]">20+ graphic & packaging services</div>
                       </div>
-                      <span className="text-[10px] text-purple-400 font-semibold bg-purple-950/60 px-2 py-0.5 rounded-full">
+                      <span className="text-[10px] text-[#D4AF37] font-semibold bg-[#D4AF37]/10 px-2 py-0.5 rounded-full">
                         Branding
                       </span>
                     </div>
 
-                    <div className="p-3.5 rounded-2xl bg-slate-800/60 border border-slate-700/50 flex items-center gap-3">
-                      <div className="p-2 rounded-xl bg-blue-500/20 text-blue-400">
+                    <div className="p-3.5 rounded-2xl bg-[#171717] border border-[#3A321C] flex items-center gap-3">
+                      <div className="p-2 rounded-xl bg-[#D4AF37]/15 text-[#D4AF37]">
                         <Code className="w-5 h-5" />
                       </div>
                       <div className="flex-1">
                         <div className="text-xs font-bold text-white">MERN Web Applications</div>
-                        <div className="text-[10px] text-slate-400">Dynamic portals, e-com & AI support</div>
+                        <div className="text-[10px] text-[#B5B5B5]">Dynamic portals, e-com & AI support</div>
                       </div>
-                      <span className="text-[10px] text-blue-400 font-semibold bg-blue-950/60 px-2 py-0.5 rounded-full">
+                      <span className="text-[10px] text-[#D4AF37] font-semibold bg-[#D4AF37]/10 px-2 py-0.5 rounded-full">
                         Full-Stack
                       </span>
                     </div>
 
-                    <div className="p-3.5 rounded-2xl bg-slate-800/60 border border-slate-700/50 flex items-center gap-3">
-                      <div className="p-2 rounded-xl bg-rose-500/20 text-rose-400">
+                    <div className="p-3.5 rounded-2xl bg-[#171717] border border-[#3A321C] flex items-center gap-3">
+                      <div className="p-2 rounded-xl bg-[#D4AF37]/15 text-[#D4AF37]">
                         <TrendingUp className="w-5 h-5" />
                       </div>
                       <div className="flex-1">
                         <div className="text-xs font-bold text-white">Strategic Marketing</div>
-                        <div className="text-[10px] text-slate-400">Targeted Meta ads & WhatsApp channels</div>
+                        <div className="text-[10px] text-[#B5B5B5]">Targeted Meta ads & WhatsApp channels</div>
                       </div>
-                      <span className="text-[10px] text-rose-400 font-semibold bg-rose-950/60 px-2 py-0.5 rounded-full">
+                      <span className="text-[10px] text-[#D4AF37] font-semibold bg-[#D4AF37]/10 px-2 py-0.5 rounded-full">
                         Growth
                       </span>
                     </div>
                   </div>
 
                   {/* Consultation Banner Inside Mockup */}
-                  <div className="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between text-xs">
-                    <span className="text-slate-400">Client Acquisition Ready</span>
+                  <div className="mt-6 pt-4 border-t border-[#3A321C] flex items-center justify-between text-xs">
+                    <span className="text-[#B5B5B5]">Client Acquisition Ready</span>
                     <button
                       onClick={() => openInquiry('General Inquiry', 'Hero Consultation')}
-                      className="text-cyan-400 hover:text-cyan-300 font-bold flex items-center gap-1"
+                      className="text-[#D4AF37] hover:text-[#F5E6B3] font-bold flex items-center gap-1"
                     >
                       <span>Inquire Now</span>
                       <ArrowRight className="w-3 h-3" />
@@ -302,24 +302,24 @@ export const Home = () => {
                 </div>
 
                 {/* Floating Badge 1 */}
-                <div className="absolute -top-5 -left-6 bg-slate-900/90 border border-slate-700 p-3 rounded-2xl shadow-xl backdrop-blur-md hidden sm:flex items-center gap-2.5 animate-float">
+                <div className="absolute -top-5 -left-6 bg-[#171717] border border-[#3A321C] p-3 rounded-2xl shadow-xl backdrop-blur-md hidden sm:flex items-center gap-2.5 animate-float">
                   <div className="w-8 h-8 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
                     <ShieldCheck className="w-5 h-5" />
                   </div>
                   <div className="text-left">
                     <div className="text-[11px] font-bold text-white">Verified Business</div>
-                    <div className="text-[9px] text-slate-400">Corporate Quality Standards</div>
+                    <div className="text-[9px] text-[#B5B5B5]">Corporate Quality Standards</div>
                   </div>
                 </div>
 
                 {/* Floating Badge 2 */}
-                <div className="absolute -bottom-6 -right-6 bg-slate-900/90 border border-slate-700 p-3 rounded-2xl shadow-xl backdrop-blur-md hidden sm:flex items-center gap-2.5 animate-float-reverse">
-                  <div className="w-8 h-8 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center">
+                <div className="absolute -bottom-6 -right-6 bg-[#171717] border border-[#3A321C] p-3 rounded-2xl shadow-xl backdrop-blur-md hidden sm:flex items-center gap-2.5 animate-float-reverse">
+                  <div className="w-8 h-8 rounded-xl bg-[#D4AF37]/15 text-[#D4AF37] flex items-center justify-center">
                     <Zap className="w-5 h-5" />
                   </div>
                   <div className="text-left">
                     <div className="text-[11px] font-bold text-white">Fast Turnaround</div>
-                    <div className="text-[9px] text-slate-400">Milestone-Driven Delivery</div>
+                    <div className="text-[9px] text-[#B5B5B5]">Milestone-Driven Delivery</div>
                   </div>
                 </div>
               </div>
@@ -333,7 +333,7 @@ export const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6 space-y-5">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-wider">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D4AF37]/10 text-[#D4AF37] border border-[#3A321C]/40 text-xs font-bold uppercase tracking-wider">
                 <span>About INOVIQ Global</span>
               </div>
               <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 font-['Outfit'] leading-tight">
@@ -348,7 +348,7 @@ export const Home = () => {
               <div className="pt-2">
                 <Link
                   to="/about"
-                  className="inline-flex items-center gap-2 font-bold text-blue-600 hover:text-blue-700 group text-sm"
+                  className="inline-flex items-center gap-2 font-bold text-[#D4AF37] hover:text-[#C9A227] group text-sm"
                 >
                   <span>Learn More About Our Philosophy & Team</span>
                   <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -357,8 +357,8 @@ export const Home = () => {
             </div>
 
             <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-blue-400 transition-colors">
-                <div className="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center mb-4">
+              <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-[#D4AF37] transition-colors">
+                <div className="w-10 h-10 rounded-xl bg-[#D4AF37]/15 text-[#D4AF37] flex items-center justify-center mb-4">
                   <CheckCircle2 className="w-5 h-5" />
                 </div>
                 <h4 className="font-bold text-slate-900 text-base mb-1 font-['Outfit']">
@@ -369,8 +369,8 @@ export const Home = () => {
                 </p>
               </div>
 
-              <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-purple-400 transition-colors">
-                <div className="w-10 h-10 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center mb-4">
+              <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-[#D4AF37] transition-colors">
+                <div className="w-10 h-10 rounded-xl bg-[#D4AF37]/15 text-[#D4AF37] flex items-center justify-center mb-4">
                   <Palette className="w-5 h-5" />
                 </div>
                 <h4 className="font-bold text-slate-900 text-base mb-1 font-['Outfit']">
@@ -381,8 +381,8 @@ export const Home = () => {
                 </p>
               </div>
 
-              <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-cyan-400 transition-colors">
-                <div className="w-10 h-10 rounded-xl bg-cyan-100 text-cyan-600 flex items-center justify-center mb-4">
+              <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-[#D4AF37] transition-colors">
+                <div className="w-10 h-10 rounded-xl bg-[#D4AF37]/15 text-[#D4AF37] flex items-center justify-center mb-4">
                   <Code className="w-5 h-5" />
                 </div>
                 <h4 className="font-bold text-slate-900 text-base mb-1 font-['Outfit']">
@@ -393,7 +393,7 @@ export const Home = () => {
                 </p>
               </div>
 
-              <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-emerald-400 transition-colors">
+              <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-[#D4AF37] transition-colors">
                 <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center mb-4">
                   <ShieldCheck className="w-5 h-5" />
                 </div>
@@ -419,7 +419,7 @@ export const Home = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-xs font-bold text-blue-600 uppercase tracking-wider bg-blue-50 px-3.5 py-1.5 rounded-full">
+            <span className="text-xs font-bold text-[#D4AF37] uppercase tracking-wider bg-[#D4AF37]/10 border border-[#3A321C]/40 px-3.5 py-1.5 rounded-full">
               The INOVIQ Advantage
             </span>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3 font-['Outfit']">
@@ -462,9 +462,9 @@ export const Home = () => {
               return (
                 <div
                   key={i}
-                  className="p-6 rounded-2xl bg-slate-50 border border-slate-200/90 hover:border-blue-500 hover:bg-white hover:shadow-lg transition-all duration-300"
+                  className="p-6 rounded-2xl bg-slate-50 border border-slate-200/90 hover:border-[#D4AF37] hover:bg-white hover:shadow-lg transition-all duration-300"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-[#D4AF37]/15 text-[#D4AF37] flex items-center justify-center mb-4">
                     <Icon className="w-6 h-6" />
                   </div>
                   <h4 className="text-base font-bold text-slate-900 mb-2 font-['Outfit']">
@@ -481,16 +481,16 @@ export const Home = () => {
       </section>
 
       {/* ================= 5-STEP PROCESS SECTION ================= */}
-      <section className="py-20 bg-slate-900 text-white relative overflow-hidden">
+      <section className="py-20 bg-[#0B0B0B] text-white relative overflow-hidden border-y border-[#3A321C]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-xs font-bold text-cyan-400 uppercase tracking-wider bg-slate-800 px-3.5 py-1.5 rounded-full border border-slate-700">
+            <span className="text-xs font-bold text-[#D4AF37] uppercase tracking-wider bg-[#171717] px-3.5 py-1.5 rounded-full border border-[#3A321C]">
               Structured Methodology
             </span>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white mt-3 font-['Outfit']">
               Our 5-Step Delivery Process
             </h2>
-            <p className="text-slate-400 text-sm sm:text-base mt-2">
+            <p className="text-[#B5B5B5] text-sm sm:text-base mt-2">
               From initial consultation to final production release and continuous support.
             </p>
           </div>
@@ -499,21 +499,21 @@ export const Home = () => {
             {processSteps.map((step, idx) => (
               <div
                 key={step.number}
-                className="relative p-6 rounded-2xl bg-slate-800/80 border border-slate-700/80 flex flex-col justify-between"
+                className="relative p-6 rounded-2xl bg-[#171717] border border-[#3A321C] flex flex-col justify-between"
               >
                 <div>
-                  <span className="text-3xl font-extrabold font-mono text-cyan-400/80 block mb-3">
+                  <span className="text-3xl font-extrabold font-mono text-[#D4AF37] block mb-3">
                     {step.number}
                   </span>
                   <h4 className="text-base font-bold text-white mb-2 font-['Outfit']">
                     {step.title}
                   </h4>
-                  <p className="text-xs text-slate-400 leading-relaxed">
+                  <p className="text-xs text-[#B5B5B5] leading-relaxed">
                     {step.desc}
                   </p>
                 </div>
                 {idx < 4 && (
-                  <div className="hidden md:block absolute -right-3 top-1/2 -translate-y-1/2 z-20 text-slate-500">
+                  <div className="hidden md:block absolute -right-3 top-1/2 -translate-y-1/2 z-20 text-[#D4AF37]/60">
                     →
                   </div>
                 )}
@@ -524,7 +524,7 @@ export const Home = () => {
           <div className="mt-12 text-center">
             <button
               onClick={() => openInquiry('General Inquiry', '5-Step Process Start')}
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-slate-900 bg-cyan-400 hover:bg-cyan-300 transition-colors shadow-lg"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-[#0B0B0B] bg-gradient-to-r from-[#D4AF37] to-[#C9A227] hover:from-[#C9A227] hover:to-[#B38F20] shadow-lg shadow-[#D4AF37]/20 transition-all"
             >
               <span>Initiate Your Project With Step 1</span>
               <ArrowRight className="w-4 h-4" />
@@ -538,7 +538,7 @@ export const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
             <div>
-              <span className="text-xs font-bold text-blue-600 uppercase tracking-wider bg-blue-50 px-3.5 py-1.5 rounded-full">
+              <span className="text-xs font-bold text-[#D4AF37] uppercase tracking-wider bg-[#D4AF37]/10 border border-[#3A321C]/40 px-3.5 py-1.5 rounded-full">
                 Work Demonstration
               </span>
               <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3 font-['Outfit']">
@@ -562,7 +562,7 @@ export const Home = () => {
                   onClick={() => setPortfolioFilter(f.id)}
                   className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all ${
                     portfolioFilter === f.id
-                      ? 'bg-blue-600 text-white shadow-sm'
+                      ? 'bg-gradient-to-r from-[#D4AF37] to-[#C9A227] text-[#0B0B0B] font-bold shadow-sm'
                       : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
                   }`}
                 >
@@ -586,11 +586,11 @@ export const Home = () => {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
                   />
                   <div className="absolute top-4 left-4 flex gap-2">
-                    <span className="text-[10px] font-bold uppercase tracking-wider bg-blue-600 text-white px-2.5 py-1 rounded-full shadow">
+                    <span className="text-[10px] font-bold uppercase tracking-wider bg-[#D4AF37] text-[#0B0B0B] px-2.5 py-1 rounded-full shadow">
                       {project.category}
                     </span>
                     {project.isSample && (
-                      <span className="text-[10px] font-semibold bg-slate-900/80 backdrop-blur-sm text-cyan-300 px-2 py-0.5 rounded-full border border-cyan-500/30">
+                      <span className="text-[10px] font-semibold bg-[#171717]/80 backdrop-blur-sm text-[#D4AF37] px-2 py-0.5 rounded-full border border-[#3A321C]">
                         Demo Project
                       </span>
                     )}
@@ -602,7 +602,7 @@ export const Home = () => {
                     <div className="text-xs font-semibold text-slate-400 mb-1">
                       Industry: {project.clientIndustry}
                     </div>
-                    <h3 className="text-lg font-bold text-slate-900 mb-2 font-['Outfit'] group-hover:text-blue-600 transition-colors">
+                    <h3 className="text-lg font-bold text-slate-900 mb-2 font-['Outfit'] group-hover:text-[#D4AF37] transition-colors">
                       {project.title}
                     </h3>
                     <p className="text-xs text-slate-600 line-clamp-2 mb-4 leading-relaxed">
@@ -624,7 +624,7 @@ export const Home = () => {
                   <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
                     <Link
                       to={`/portfolio/${project.slug}`}
-                      className="text-xs font-bold text-blue-600 hover:text-blue-700 flex items-center gap-1"
+                      className="text-xs font-bold text-[#D4AF37] hover:text-[#C9A227] flex items-center gap-1"
                     >
                       <span>View Case Study</span>
                       <ArrowRight className="w-3.5 h-3.5" />
@@ -645,7 +645,7 @@ export const Home = () => {
           <div className="mt-12 text-center">
             <Link
               to="/portfolio"
-              className="inline-flex items-center gap-2 font-bold text-sm text-blue-600 hover:underline"
+              className="inline-flex items-center gap-2 font-bold text-sm text-[#D4AF37] hover:text-[#C9A227] hover:underline"
             >
               <span>Explore All Case Studies In Detail →</span>
             </Link>
@@ -657,7 +657,7 @@ export const Home = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-xs font-bold text-blue-600 uppercase tracking-wider bg-blue-50 px-3.5 py-1.5 rounded-full">
+            <span className="text-xs font-bold text-[#D4AF37] uppercase tracking-wider bg-[#D4AF37]/10 border border-[#3A321C]/40 px-3.5 py-1.5 rounded-full">
               Client Feedback Framework
             </span>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3 font-['Outfit']">
@@ -697,7 +697,7 @@ export const Home = () => {
                 className="p-8 rounded-3xl bg-slate-50 border border-slate-200/80 flex flex-col justify-between"
               >
                 <div>
-                  <div className="flex items-center gap-1 text-amber-400 mb-4 text-sm">
+                  <div className="flex items-center gap-1 text-[#D4AF37] mb-4 text-sm">
                     ★★★★★
                   </div>
                   <p className="text-slate-700 text-xs sm:text-sm italic leading-relaxed mb-6">
@@ -706,7 +706,7 @@ export const Home = () => {
                 </div>
                 <div className="pt-4 border-t border-slate-200">
                   <div className="text-xs font-bold text-slate-900">{t.role}</div>
-                  <div className="text-[11px] text-blue-600 font-semibold">{t.service}</div>
+                  <div className="text-[11px] text-[#D4AF37] font-semibold">{t.service}</div>
                   <span className="text-[10px] text-slate-400 block mt-1">{t.status}</span>
                 </div>
               </div>
@@ -719,7 +719,7 @@ export const Home = () => {
       <section className="py-20 bg-slate-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="text-xs font-bold text-blue-600 uppercase tracking-wider bg-blue-50 px-3.5 py-1.5 rounded-full">
+            <span className="text-xs font-bold text-[#D4AF37] uppercase tracking-wider bg-[#D4AF37]/10 border border-[#3A321C]/40 px-3.5 py-1.5 rounded-full">
               Got Questions?
             </span>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3 font-['Outfit']">
@@ -740,12 +740,12 @@ export const Home = () => {
                 >
                   <button
                     onClick={() => setActiveFaq(isOpen ? null : idx)}
-                    className="w-full p-5 text-left flex items-center justify-between gap-4 font-bold text-slate-800 hover:text-blue-600 transition-colors"
+                    className="w-full p-5 text-left flex items-center justify-between gap-4 font-bold text-slate-800 hover:text-[#D4AF37] transition-colors"
                   >
                     <span className="text-sm sm:text-base font-['Outfit']">{faq.q}</span>
                     <ChevronDown
                       className={`w-5 h-5 text-slate-400 shrink-0 transition-transform duration-200 ${
-                        isOpen ? 'rotate-180 text-blue-600' : ''
+                        isOpen ? 'rotate-180 text-[#D4AF37]' : ''
                       }`}
                     />
                   </button>
@@ -760,14 +760,14 @@ export const Home = () => {
             })}
           </div>
 
-          <div className="mt-10 p-6 rounded-2xl bg-blue-50/70 border border-blue-200/80 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="mt-10 p-6 rounded-2xl bg-[#D4AF37]/10 border border-[#3A321C]/40 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="text-center sm:text-left">
               <h4 className="font-bold text-sm text-slate-900">Have a specific question not answered here?</h4>
               <p className="text-xs text-slate-500">Our customer team is available for direct inquiries.</p>
             </div>
             <Link
               to="/faq"
-              className="px-5 py-2.5 rounded-xl bg-blue-600 text-white font-semibold text-xs hover:bg-blue-700 transition-colors shrink-0"
+              className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#D4AF37] to-[#C9A227] hover:from-[#C9A227] hover:to-[#B38F20] text-[#0B0B0B] font-bold text-xs transition-colors shrink-0"
             >
               Browse Complete FAQ
             </Link>
@@ -776,22 +776,22 @@ export const Home = () => {
       </section>
 
       {/* ================= FINAL STRONG CTA ================= */}
-      <section className="py-20 bg-gradient-corporate text-white relative overflow-hidden">
+      <section className="py-20 bg-gradient-to-b from-[#0B0B0B] via-[#171717] to-[#0B0B0B] border-t border-[#3A321C] text-white relative overflow-hidden">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <span className="text-xs font-bold text-cyan-400 uppercase tracking-wider bg-slate-800 px-3.5 py-1.5 rounded-full border border-slate-700">
+          <span className="text-xs font-bold text-[#D4AF37] uppercase tracking-wider bg-[#171717] px-3.5 py-1.5 rounded-full border border-[#3A321C]">
             Let's Collaborate
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mt-4 mb-4 font-['Outfit']">
-            Ready To Convert Your Ideas Into <span className="text-cyan-400">Measurable Impact</span>?
+            Ready To Convert Your Ideas Into <span className="text-gradient-gold">Measurable Impact</span>?
           </h2>
-          <p className="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto mb-8 leading-relaxed">
+          <p className="text-[#B5B5B5] text-sm sm:text-base max-w-2xl mx-auto mb-8 leading-relaxed">
             Partner with INOVIQ GLOBAL PVT. LTD. for precision design, modern web applications, and strategic business growth. Request a detailed consultation or quotation today.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               onClick={() => openInquiry('General Inquiry', 'Final CTA Discuss Project')}
-              className="w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-slate-900 bg-cyan-400 hover:bg-cyan-300 shadow-xl hover:shadow-cyan-400/25 transition-all duration-200 flex items-center justify-center gap-2 hover:-translate-y-0.5"
+              className="w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-[#0B0B0B] bg-gradient-to-r from-[#D4AF37] via-[#C9A227] to-[#B38F20] shadow-xl hover:shadow-[#D4AF37]/25 hover:from-[#C9A227] hover:to-[#A68018] transition-all duration-200 flex items-center justify-center gap-2 hover:-translate-y-0.5"
             >
               <span>Discuss Your Project</span>
               <ArrowRight className="w-4 h-4" />
@@ -799,7 +799,7 @@ export const Home = () => {
 
             <Link
               to="/get-a-quote"
-              className="w-full sm:w-auto px-8 py-4 rounded-xl font-semibold text-white bg-slate-800/80 hover:bg-slate-800 border border-slate-700 transition-all flex items-center justify-center gap-2"
+              className="w-full sm:w-auto px-8 py-4 rounded-xl font-semibold text-white bg-[#171717] hover:bg-[#222222] border border-[#3A321C] transition-all flex items-center justify-center gap-2"
             >
               <span>Request Detailed Quote</span>
             </Link>

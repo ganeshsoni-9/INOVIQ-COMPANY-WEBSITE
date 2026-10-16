@@ -12,7 +12,7 @@ export const PublicLayout = () => {
   }, [pathname]);
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 text-slate-800 font-sans selection:bg-blue-600 selection:text-white">
+    <div className={`min-h-screen flex flex-col bg-slate-50 text-slate-800 font-sans ${pathname === '/' ? 'selection:bg-[#D4AF37] selection:text-[#0B0B0B]' : 'selection:bg-blue-600 selection:text-white'}`}>
       <Navbar />
       <main className="flex-1">
         <Outlet />

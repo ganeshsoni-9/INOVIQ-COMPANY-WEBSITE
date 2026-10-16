@@ -59,6 +59,16 @@
   -webkit-text-fill-color: transparent;
 }
 
+.text-gradient-gold {
+  background: linear-gradient(135deg, #D4AF37 0%, #F5E6B3 50%, #C9A227 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-gradient-gold {
+  background: linear-gradient(135deg, #D4AF37 0%, #C9A227 100%);
+}
+
 .bg-gradient-corporate {
   background: linear-gradient(135deg, #0A192F 0%, #0F2A4A 50%, #0A192F 100%);
 }

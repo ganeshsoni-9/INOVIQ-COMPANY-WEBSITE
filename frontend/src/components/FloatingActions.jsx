@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowUp, Send } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 export const FloatingActions = () => {
   const [showTopBtn, setShowTopBtn] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
   useEffect(() => {
     const checkScroll = () => {
@@ -86,7 +88,7 @@ export const FloatingActions = () => {
     {
       name: 'Phone',
       href: `tel:+${phoneNumber}`,
-      color: 'bg-[#2563EB] hover:bg-[#1D4ED8]',
+      color: isHomePage ? 'bg-gradient-to-r from-[#D4AF37] to-[#C9A227] hover:from-[#C9A227] hover:to-[#B38F20] text-[#0B0B0B]' : 'bg-[#2563EB] hover:bg-[#1D4ED8]',
       label: 'Call INOVIQ GLOBAL',
       external: false,
       icon: (
@@ -134,7 +136,11 @@ export const FloatingActions = () => {
           onClick={scrollToTop}
           aria-label="Scroll to top"
           title="Scroll to top"
-          className="pointer-events-auto p-3 rounded-full bg-white text-slate-700 hover:text-blue-600 shadow-lg border border-slate-200 transition-all hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className={`pointer-events-auto p-3 rounded-full shadow-lg border transition-all hover:-translate-y-1 focus:outline-none focus:ring-2 ${
+            isHomePage
+              ? 'bg-[#171717] text-white hover:text-[#D4AF37] border-[#3A321C] focus:ring-[#D4AF37]'
+              : 'bg-white text-slate-700 hover:text-blue-600 border-slate-200 focus:ring-blue-500'
+          }`}
         >
           <ArrowUp className="w-5 h-5" />
         </button>
@@ -143,7 +149,11 @@ export const FloatingActions = () => {
       {/* Get Instant Quote */}
       <Link
         to="/get-a-quote"
-        className="pointer-events-auto hidden sm:flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium text-sm px-4 py-2.5 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all border border-white/20"
+        className={`pointer-events-auto hidden sm:flex items-center gap-2 font-medium text-sm px-4 py-2.5 rounded-full shadow-lg transition-all ${
+          isHomePage
+            ? 'bg-gradient-to-r from-[#D4AF37] to-[#C9A227] hover:from-[#C9A227] hover:to-[#B38F20] text-[#0B0B0B] font-bold border border-[#F5E6B3]/40 shadow-[#D4AF37]/20 hover:shadow-xl hover:-translate-y-0.5'
+            : 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:shadow-xl hover:-translate-y-0.5 border border-white/20'
+        }`}
       >
         <Send className="w-4 h-4" />
         <span>Get Instant Quote</span>

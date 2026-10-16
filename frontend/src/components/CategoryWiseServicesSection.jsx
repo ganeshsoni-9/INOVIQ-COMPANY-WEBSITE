@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import {
   Search,
   Filter,
@@ -22,6 +22,8 @@ export const CategoryWiseServicesSection = ({
   title = 'inoviq Category-Wise Services Directory',
   subtitle = 'Every service category opens its own dedicated listing with individual cards and descriptions.',
 }) => {
+  const location = useLocation();
+  const isHome = location.pathname === '/';
   const [selectedCategory, setSelectedCategory] = useState(initialCategoryId);
   const [searchQuery, setSearchQuery] = useState('');
   const [detailModalService, setDetailModalService] = useState(null);
@@ -78,8 +80,12 @@ export const CategoryWiseServicesSection = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <span className="text-xs font-bold text-blue-600 uppercase tracking-wider bg-blue-50 px-4 py-1.5 rounded-full border border-blue-200/60 inline-flex items-center gap-1.5 shadow-sm">
-            <Sparkles className="w-3.5 h-3.5 text-blue-600" />
+          <span className={`text-xs font-bold uppercase tracking-wider px-4 py-1.5 rounded-full border inline-flex items-center gap-1.5 shadow-sm ${
+            isHome
+              ? 'text-[#D4AF37] bg-[#D4AF37]/10 border-[#3A321C]'
+              : 'text-blue-600 bg-blue-50 border-blue-200/60'
+          }`}>
+            <Sparkles className={`w-3.5 h-3.5 ${isHome ? 'text-[#D4AF37]' : 'text-blue-600'}`} />
             <span>inoviq Integrated Capabilities</span>
           </span>
 
@@ -113,6 +119,7 @@ export const CategoryWiseServicesSection = ({
                   <CategoryCard
                     category={cat}
                     isActive={selectedCategory === cat.id}
+                    isHome={isHome}
                     onSelectCategory={(id) => {
                       setSelectedCategory(id);
                       // Smooth scroll down to service list
@@ -136,7 +143,9 @@ export const CategoryWiseServicesSection = ({
                   onClick={() => setSelectedCategory('all')}
                   className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
                     selectedCategory === 'all'
-                      ? 'bg-blue-600 text-white shadow-md'
+                      ? isHome
+                        ? 'bg-gradient-to-r from-[#D4AF37] to-[#C9A227] text-[#0B0B0B] font-bold shadow-md'
+                        : 'bg-blue-600 text-white shadow-md'
                       : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
                   }`}
                 >
@@ -149,7 +158,9 @@ export const CategoryWiseServicesSection = ({
                     onClick={() => setSelectedCategory(cat.id)}
                     className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
                       selectedCategory === cat.id
-                        ? 'bg-blue-600 text-white shadow-md'
+                        ? isHome
+                          ? 'bg-gradient-to-r from-[#D4AF37] to-[#C9A227] text-[#0B0B0B] font-bold shadow-md'
+                          : 'bg-blue-600 text-white shadow-md'
                         : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
                     }`}
                   >
@@ -166,7 +177,11 @@ export const CategoryWiseServicesSection = ({
                   placeholder="Search 48 services..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-10 pr-8 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+                  className={`w-full pl-10 pr-8 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm bg-slate-50 focus:bg-white focus:outline-none transition-all ${
+                    isHome
+                      ? 'focus:ring-2 focus:ring-[#D4AF37] focus:border-[#D4AF37]'
+                      : 'focus:ring-2 focus:ring-blue-500'
+                  }`}
                 />
                 {searchQuery && (
                   <button
@@ -181,10 +196,14 @@ export const CategoryWiseServicesSection = ({
 
             {/* Active Category Header Banner if single category chosen */}
             {activeCategoryObj && (
-              <div className="mt-4 pt-4 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-blue-50/40 p-4 rounded-2xl">
+              <div className={`mt-4 pt-4 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-2xl ${
+                isHome ? 'bg-[#D4AF37]/10 border border-[#3A321C]/40' : 'bg-blue-50/40'
+              }`}>
                 <div>
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-blue-600 bg-blue-100 px-2.5 py-0.5 rounded-full">
+                    <span className={`text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full ${
+                      isHome ? 'text-[#D4AF37] bg-[#D4AF37]/20' : 'text-blue-600 bg-blue-100'
+                    }`}>
                       Selected Category
                     </span>
                     <span className="text-xs font-semibold text-slate-500">
@@ -210,7 +229,11 @@ export const CategoryWiseServicesSection = ({
 
                   <Link
                     to={activeCategoryObj.path}
-                    className="px-3.5 py-2 rounded-xl text-xs font-bold text-white bg-blue-600 hover:bg-blue-700 transition-colors flex items-center gap-1.5 shadow-sm"
+                    className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-colors flex items-center gap-1.5 shadow-sm ${
+                      isHome
+                        ? 'bg-gradient-to-r from-[#D4AF37] to-[#C9A227] hover:from-[#C9A227] hover:to-[#B38F20] text-[#0B0B0B]'
+                        : 'text-white bg-blue-600 hover:bg-blue-700'
+                    }`}
                   >
                     <span>Dedicated Page</span>
                     <ExternalLink className="w-3.5 h-3.5" />
@@ -256,7 +279,11 @@ export const CategoryWiseServicesSection = ({
                 setSearchQuery('');
                 setSelectedCategory('all');
               }}
-              className="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold transition-colors shadow-sm"
+              className={`px-5 py-2.5 rounded-xl text-xs font-bold transition-colors shadow-sm ${
+                isHome
+                  ? 'bg-gradient-to-r from-[#D4AF37] to-[#C9A227] hover:from-[#C9A227] hover:to-[#B38F20] text-[#0B0B0B]'
+                  : 'bg-blue-600 hover:bg-blue-700 text-white'
+              }`}
             >
               Reset All Filters
             </button>
@@ -268,6 +295,7 @@ export const CategoryWiseServicesSection = ({
               <ServiceCard
                 key={service.id}
                 service={service}
+                isHome={isHome}
                 onViewDetails={handleOpenDetails}
                 onEnquire={handleOpenInquiry}
               />
@@ -276,9 +304,17 @@ export const CategoryWiseServicesSection = ({
         )}
 
         {/* Bottom Direct Inquiry Banner */}
-        <div className="mt-16 p-8 sm:p-10 rounded-3xl bg-gradient-to-r from-[#0A192F] via-[#0E274D] to-[#0A192F] text-white border border-slate-700 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className={`mt-16 p-8 sm:p-10 rounded-3xl text-white border shadow-xl flex flex-col md:flex-row items-center justify-between gap-6 ${
+          isHome
+            ? 'bg-gradient-to-r from-[#0B0B0B] via-[#171717] to-[#0B0B0B] border-[#3A321C]'
+            : 'bg-gradient-to-r from-[#0A192F] via-[#0E274D] to-[#0A192F] border-slate-700'
+        }`}>
           <div className="space-y-2 text-center md:text-left">
-            <span className="text-xs font-bold text-cyan-400 uppercase tracking-wider bg-slate-800/80 px-3 py-1 rounded-full border border-slate-700">
+            <span className={`text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full border ${
+              isHome
+                ? 'text-[#D4AF37] bg-[#171717] border-[#3A321C]'
+                : 'text-cyan-400 bg-slate-800/80 border-slate-700'
+            }`}>
               Custom Requirements
             </span>
             <h3 className="text-2xl sm:text-3xl font-extrabold text-white font-['Outfit']">
@@ -291,7 +327,11 @@ export const CategoryWiseServicesSection = ({
 
           <button
             onClick={() => handleOpenInquiry('General Inquiry', 'Multi-Category Custom Package')}
-            className="px-8 py-3.5 rounded-xl font-bold text-slate-900 bg-cyan-400 hover:bg-cyan-300 transition-all shadow-lg hover:shadow-cyan-400/25 shrink-0 flex items-center gap-2 active:scale-95"
+            className={`px-8 py-3.5 rounded-xl font-bold transition-all shadow-lg shrink-0 flex items-center gap-2 active:scale-95 ${
+              isHome
+                ? 'text-[#0B0B0B] bg-gradient-to-r from-[#D4AF37] to-[#C9A227] hover:from-[#C9A227] hover:to-[#B38F20] hover:shadow-[#D4AF37]/25'
+                : 'text-slate-900 bg-cyan-400 hover:bg-cyan-300 hover:shadow-cyan-400/25'
+            }`}
           >
             <span>Request Custom Quote</span>
             <ArrowRight className="w-4 h-4" />
