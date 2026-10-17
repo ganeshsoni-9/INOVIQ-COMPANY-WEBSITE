@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import {
@@ -28,11 +29,11 @@ export const Navbar = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close menus when route changes
   useEffect(() => {
     setMobileMenuOpen(false);
     setServicesDropdownOpen(false);
@@ -45,7 +46,8 @@ export const Navbar = () => {
       path: '/services/graphic-design',
       icon: Palette,
       badge: '20 Services',
-      description: 'Logos, visiting cards, video intros, packaging, 3D product renders & brochures.',
+      description:
+        'Logos, visiting cards, video intros, packaging, 3D product renders & brochures.',
       color: 'text-purple-600 bg-purple-50',
     },
     {
@@ -53,7 +55,8 @@ export const Navbar = () => {
       path: '/services/web-development',
       icon: Code,
       badge: 'Dynamic & E-com',
-      description: 'MERN stack applications, e-commerce stores, digital cards, SEO & AI chatbots.',
+      description:
+        'MERN stack applications, e-commerce stores, digital cards, SEO & AI chatbots.',
       color: 'text-blue-600 bg-blue-50',
     },
     {
@@ -61,7 +64,8 @@ export const Navbar = () => {
       path: '/services/digital-services',
       icon: Share2,
       badge: 'Organic Growth',
-      description: 'Google My Business, Facebook & Instagram optimization, social media handling.',
+      description:
+        'Google My Business, Facebook & Instagram optimization, social media handling.',
       color: 'text-cyan-600 bg-cyan-50',
     },
     {
@@ -69,7 +73,8 @@ export const Navbar = () => {
       path: '/services/marketing',
       icon: TrendingUp,
       badge: 'Lead Generation',
-      description: 'Meta ads, compliant WhatsApp & SMS marketing, local geo-marketing & influencers.',
+      description:
+        'Meta ads, compliant WhatsApp & SMS marketing, local geo-marketing & influencers.',
       color: 'text-rose-600 bg-rose-50',
     },
     {
@@ -77,7 +82,8 @@ export const Navbar = () => {
       path: '/services/legal-business-support',
       icon: ShieldCheck,
       badge: 'Compliance Support',
-      description: 'Trademark assistance, company registration support, payments & WhatsApp API.',
+      description:
+        'Trademark assistance, company registration support, payments & WhatsApp API.',
       color: 'text-emerald-600 bg-emerald-50',
     },
   ];
@@ -87,23 +93,39 @@ export const Navbar = () => {
   return (
     <header className="sticky top-0 z-50 w-full transition-all duration-300">
       {/* Top Contact Strip */}
-      <div className={`${isHomePage ? 'bg-[#0B0B0B] border-[#3A321C]' : 'bg-[#0A192F] border-slate-800'} text-slate-300 text-xs py-2 px-4 sm:px-8 border-b`}>
+      <div
+        className={`${
+          isHomePage
+            ? 'bg-[#0B0B0B] border-[#3A321C]'
+            : 'bg-[#0A192F] border-slate-800'
+        } text-slate-300 text-xs py-1 px-4 sm:px-8 border-b`}
+      >
         <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
           <div className="flex items-center gap-6">
             <a
-              href="tel:+919876543210"
+              href="tel:+918000180600"
               className="flex items-center gap-1.5 hover:text-white transition-colors"
             >
-              <Phone className={`w-3.5 h-3.5 ${isHomePage ? 'text-[#D4AF37]' : 'text-blue-400'}`} />
+              <Phone
+                className={`w-3.5 h-3.5 ${
+                  isHomePage ? 'text-[#D4AF37]' : 'text-blue-400'
+                }`}
+              />
               <span>+91 80001 80600</span>
             </a>
+
             <a
               href="mailto:info@inoviqglobal.com"
               className="hidden sm:flex items-center gap-1.5 hover:text-white transition-colors"
             >
-              <Mail className={`w-3.5 h-3.5 ${isHomePage ? 'text-[#D4AF37]' : 'text-cyan-400'}`} />
-              <span>info@invoiqglobal.com</span>
+              <Mail
+                className={`w-3.5 h-3.5 ${
+                  isHomePage ? 'text-[#D4AF37]' : 'text-cyan-400'
+                }`}
+              />
+              <span>info@inoviqglobal.com</span>
             </a>
+
             <div className="hidden md:flex items-center gap-1.5 text-slate-400">
               <MapPin className="w-3.5 h-3.5 text-slate-500" />
               <span>Sikar, Rajasthan, India</span>
@@ -114,9 +136,14 @@ export const Navbar = () => {
             <span className="hidden lg:inline text-slate-400">
               ⚡ Transform Your Business With Digital Excellence
             </span>
+
             <Link
               to="/get-a-quote"
-              className={`${isHomePage ? 'text-[#D4AF37] hover:text-[#F5E6B3]' : 'text-cyan-400 hover:text-cyan-300'} font-semibold flex items-center gap-1`}
+              className={`${
+                isHomePage
+                  ? 'text-[#D4AF37] hover:text-[#F5E6B3]'
+                  : 'text-cyan-400 hover:text-cyan-300'
+              } font-semibold flex items-center gap-1`}
             >
               <span>Request Quote</span>
               <ArrowRight className="w-3 h-3" />
@@ -130,15 +157,15 @@ export const Navbar = () => {
         className={`w-full transition-all duration-300 ${
           isHomePage
             ? isScrolled
-              ? 'bg-[#111111]/95 backdrop-blur-md py-3 shadow-md border-b border-[#3A321C]'
-              : 'bg-[#111111] py-4 border-b border-[#3A321C]'
+              ? 'bg-[#111111]/95 backdrop-blur-md py-1 shadow-md border-b border-[#3A321C]'
+              : 'bg-[#111111] py-2 border-b border-[#3A321C]'
             : isScrolled
-            ? 'glass-nav py-3 shadow-md'
-            : 'bg-white/95 backdrop-blur-md py-4 border-b border-slate-200'
+              ? 'glass-nav py-1 shadow-md'
+              : 'bg-white/95 backdrop-blur-md py-2 border-b border-slate-200'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          {/* Logo */}
+          {/* Logo: large size maintained */}
           <Logo variant={isHomePage ? 'dark' : 'light'} />
 
           {/* Desktop Navigation Links */}
@@ -152,8 +179,8 @@ export const Navbar = () => {
                       ? 'text-[#D4AF37] bg-[#3A321C]/40 font-semibold'
                       : 'text-white hover:text-[#D4AF37] hover:bg-[#171717]'
                     : isActive
-                    ? 'text-blue-600 bg-blue-50 font-semibold'
-                    : 'text-slate-700 hover:text-blue-600 hover:bg-slate-50'
+                      ? 'text-blue-600 bg-blue-50 font-semibold'
+                      : 'text-slate-700 hover:text-blue-600 hover:bg-slate-50'
                 }`
               }
             >
@@ -169,15 +196,15 @@ export const Navbar = () => {
                       ? 'text-[#D4AF37] bg-[#3A321C]/40 font-semibold'
                       : 'text-white hover:text-[#D4AF37] hover:bg-[#171717]'
                     : isActive
-                    ? 'text-blue-600 bg-blue-50 font-semibold'
-                    : 'text-slate-700 hover:text-blue-600 hover:bg-slate-50'
+                      ? 'text-blue-600 bg-blue-50 font-semibold'
+                      : 'text-slate-700 hover:text-blue-600 hover:bg-slate-50'
                 }`
               }
             >
               About Us
             </NavLink>
 
-            {/* Services Dropdown with Mega-Menu */}
+            {/* Services Dropdown */}
             <div
               className="relative"
               onMouseEnter={() => setServicesDropdownOpen(true)}
@@ -190,10 +217,12 @@ export const Navbar = () => {
                       ? 'text-[#D4AF37] bg-[#3A321C]/40 font-semibold'
                       : 'text-white hover:text-[#D4AF37] hover:bg-[#171717]'
                     : location.pathname.startsWith('/services')
-                    ? 'text-blue-600 bg-blue-50 font-semibold'
-                    : 'text-slate-700 hover:text-blue-600 hover:bg-slate-50'
+                      ? 'text-blue-600 bg-blue-50 font-semibold'
+                      : 'text-slate-700 hover:text-blue-600 hover:bg-slate-50'
                 }`}
-                onClick={() => setServicesDropdownOpen(!servicesDropdownOpen)}
+                onClick={() =>
+                  setServicesDropdownOpen(!servicesDropdownOpen)
+                }
               >
                 <span>Services</span>
                 <ChevronDown
@@ -207,21 +236,29 @@ export const Navbar = () => {
                 />
               </button>
 
-              {/* Mega-menu panel */}
               {servicesDropdownOpen && (
-                <div className={`absolute top-full -left-20 w-[580px] rounded-2xl shadow-2xl p-5 mt-1 z-50 animate-in fade-in slide-in-from-top-2 duration-200 ${
-                  isHomePage
-                    ? 'bg-[#171717] border border-[#3A321C] text-white'
-                    : 'bg-white rounded-2xl shadow-2xl border border-slate-200/80 p-5 mt-1 z-50 animate-in fade-in slide-in-from-top-2 duration-200 text-slate-800'
-                }`}>
-                  <div className={`flex items-center justify-between pb-3 border-b mb-3 ${isHomePage ? 'border-[#3A321C]' : 'border-slate-100'}`}>
+                <div
+                  className={`absolute top-full -left-20 w-[580px] rounded-2xl shadow-2xl p-5 mt-1 z-50 animate-in fade-in slide-in-from-top-2 duration-200 ${
+                    isHomePage
+                      ? 'bg-[#171717] border border-[#3A321C] text-white'
+                      : 'bg-white border border-slate-200/80 text-slate-800'
+                  }`}
+                >
+                  <div
+                    className={`flex items-center justify-between pb-3 border-b mb-3 ${
+                      isHomePage ? 'border-[#3A321C]' : 'border-slate-100'
+                    }`}
+                  >
                     <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
                       Our 5 Core Service Domains
                     </span>
+
                     <Link
                       to="/services"
                       className={`text-xs font-semibold flex items-center gap-1 ${
-                        isHomePage ? 'text-[#D4AF37] hover:text-[#F5E6B3]' : 'text-blue-600 hover:text-blue-700'
+                        isHomePage
+                          ? 'text-[#D4AF37] hover:text-[#F5E6B3]'
+                          : 'text-blue-600 hover:text-blue-700'
                       }`}
                     >
                       View All Services
@@ -232,38 +269,50 @@ export const Navbar = () => {
                   <div className="grid grid-cols-1 gap-2">
                     {serviceCategories.map((cat) => {
                       const Icon = cat.icon;
+
                       return (
                         <Link
                           key={cat.path}
                           to={cat.path}
                           className={`flex items-start gap-3.5 p-3 rounded-xl transition-colors group ${
-                            isHomePage ? 'hover:bg-[#222222]' : 'hover:bg-slate-50'
+                            isHomePage
+                              ? 'hover:bg-[#222222]'
+                              : 'hover:bg-slate-50'
                           }`}
                         >
                           <div
                             className={`p-2.5 rounded-xl group-hover:scale-105 transition-transform ${
-                              isHomePage ? 'text-[#D4AF37] bg-[#D4AF37]/15' : cat.color
+                              isHomePage
+                                ? 'text-[#D4AF37] bg-[#D4AF37]/15'
+                                : cat.color
                             }`}
                           >
                             <Icon className="w-5 h-5" />
                           </div>
+
                           <div className="flex-1">
                             <div className="flex items-center justify-between">
-                              <span className={`text-sm font-bold transition-colors ${
-                                isHomePage
-                                  ? 'text-white group-hover:text-[#D4AF37]'
-                                  : 'text-slate-800 group-hover:text-blue-600'
-                              }`}>
+                              <span
+                                className={`text-sm font-bold transition-colors ${
+                                  isHomePage
+                                    ? 'text-white group-hover:text-[#D4AF37]'
+                                    : 'text-slate-800 group-hover:text-blue-600'
+                                }`}
+                              >
                                 {cat.name}
                               </span>
-                              <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${
-                                isHomePage
-                                  ? 'text-[#D4AF37] bg-[#3A321C]/60'
-                                  : 'text-blue-600 bg-blue-50'
-                              }`}>
+
+                              <span
+                                className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${
+                                  isHomePage
+                                    ? 'text-[#D4AF37] bg-[#3A321C]/60'
+                                    : 'text-blue-600 bg-blue-50'
+                                }`}
+                              >
                                 {cat.badge}
                               </span>
                             </div>
+
                             <p className="text-xs text-slate-400 line-clamp-1 mt-0.5">
                               {cat.description}
                             </p>
@@ -273,17 +322,30 @@ export const Navbar = () => {
                     })}
                   </div>
 
-                  <div className={`mt-3 pt-3 border-t -mx-5 -mb-5 p-4 rounded-b-2xl flex items-center justify-between ${
-                    isHomePage ? 'border-[#3A321C] bg-[#111111]' : 'border-slate-100 bg-slate-50/70'
-                  }`}>
+                  <div
+                    className={`mt-3 pt-3 border-t -mx-5 -mb-5 p-4 rounded-b-2xl flex items-center justify-between ${
+                      isHomePage
+                        ? 'border-[#3A321C] bg-[#111111]'
+                        : 'border-slate-100 bg-slate-50/70'
+                    }`}
+                  >
                     <div className="flex items-center gap-2 text-xs text-slate-400">
-                      <Sparkles className={`w-4 h-4 ${isHomePage ? 'text-[#D4AF37]' : 'text-amber-500'}`} />
-                      <span>Custom project scope? We craft bespoke corporate packages.</span>
+                      <Sparkles
+                        className={`w-4 h-4 ${
+                          isHomePage ? 'text-[#D4AF37]' : 'text-amber-500'
+                        }`}
+                      />
+                      <span>
+                        Custom project scope? We craft bespoke corporate packages.
+                      </span>
                     </div>
+
                     <Link
                       to="/get-a-quote"
                       className={`text-xs font-bold underline ${
-                        isHomePage ? 'text-[#D4AF37] hover:text-[#F5E6B3]' : 'text-blue-600 hover:text-blue-700'
+                        isHomePage
+                          ? 'text-[#D4AF37] hover:text-[#F5E6B3]'
+                          : 'text-blue-600 hover:text-blue-700'
                       }`}
                     >
                       Discuss Project
@@ -302,8 +364,8 @@ export const Navbar = () => {
                       ? 'text-[#D4AF37] bg-[#3A321C]/40 font-semibold'
                       : 'text-white hover:text-[#D4AF37] hover:bg-[#171717]'
                     : isActive
-                    ? 'text-blue-600 bg-blue-50 font-semibold'
-                    : 'text-slate-700 hover:text-blue-600 hover:bg-slate-50'
+                      ? 'text-blue-600 bg-blue-50 font-semibold'
+                      : 'text-slate-700 hover:text-blue-600 hover:bg-slate-50'
                 }`
               }
             >
@@ -319,8 +381,8 @@ export const Navbar = () => {
                       ? 'text-[#D4AF37] bg-[#3A321C]/40 font-semibold'
                       : 'text-white hover:text-[#D4AF37] hover:bg-[#171717]'
                     : isActive
-                    ? 'text-blue-600 bg-blue-50 font-semibold'
-                    : 'text-slate-700 hover:text-blue-600 hover:bg-slate-50'
+                      ? 'text-blue-600 bg-blue-50 font-semibold'
+                      : 'text-slate-700 hover:text-blue-600 hover:bg-slate-50'
                 }`
               }
             >
@@ -336,8 +398,8 @@ export const Navbar = () => {
                       ? 'text-[#D4AF37] bg-[#3A321C]/40 font-semibold'
                       : 'text-white hover:text-[#D4AF37] hover:bg-[#171717]'
                     : isActive
-                    ? 'text-blue-600 bg-blue-50 font-semibold'
-                    : 'text-slate-700 hover:text-blue-600 hover:bg-slate-50'
+                      ? 'text-blue-600 bg-blue-50 font-semibold'
+                      : 'text-slate-700 hover:text-blue-600 hover:bg-slate-50'
                 }`
               }
             >
@@ -370,7 +432,11 @@ export const Navbar = () => {
             }`}
             aria-label="Toggle mobile menu"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
           </button>
         </div>
       </div>
@@ -378,17 +444,21 @@ export const Navbar = () => {
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div className="lg:hidden fixed inset-0 top-[100px] z-40 bg-slate-950/60 backdrop-blur-sm">
-          <div className={`h-[calc(100vh-100px)] overflow-y-auto px-6 py-6 border-t flex flex-col justify-between ${
-            isHomePage
-              ? 'bg-[#111111] border-[#3A321C] text-white'
-              : 'bg-white border-slate-200 text-slate-800'
-          }`}>
+          <div
+            className={`h-[calc(100vh-100px)] overflow-y-auto px-6 py-6 border-t flex flex-col justify-between ${
+              isHomePage
+                ? 'bg-[#111111] border-[#3A321C] text-white'
+                : 'bg-white border-slate-200 text-slate-800'
+            }`}
+          >
             <div className="space-y-3">
               <NavLink
                 to="/"
                 className={({ isActive }) =>
                   `block px-4 py-3 rounded-xl text-base font-semibold ${
-                    isActive ? 'text-[#D4AF37] bg-[#3A321C]/40' : 'text-white hover:bg-[#171717] hover:text-[#D4AF37]'
+                    isActive
+                      ? 'text-[#D4AF37] bg-[#3A321C]/40'
+                      : 'text-white hover:bg-[#171717] hover:text-[#D4AF37]'
                   }`
                 }
               >
@@ -399,7 +469,9 @@ export const Navbar = () => {
                 to="/about"
                 className={({ isActive }) =>
                   `block px-4 py-3 rounded-xl text-base font-semibold ${
-                    isActive ? 'text-[#D4AF37] bg-[#3A321C]/40' : 'text-white hover:bg-[#171717] hover:text-[#D4AF37]'
+                    isActive
+                      ? 'text-[#D4AF37] bg-[#3A321C]/40'
+                      : 'text-white hover:bg-[#171717] hover:text-[#D4AF37]'
                   }`
                 }
               >
@@ -434,6 +506,7 @@ export const Navbar = () => {
                     >
                       All Services Directory →
                     </Link>
+
                     {serviceCategories.map((cat) => (
                       <Link
                         key={cat.path}
@@ -451,7 +524,9 @@ export const Navbar = () => {
                 to="/portfolio"
                 className={({ isActive }) =>
                   `block px-4 py-3 rounded-xl text-base font-semibold ${
-                    isActive ? 'text-[#D4AF37] bg-[#3A321C]/40' : 'text-white hover:bg-[#171717] hover:text-[#D4AF37]'
+                    isActive
+                      ? 'text-[#D4AF37] bg-[#3A321C]/40'
+                      : 'text-white hover:bg-[#171717] hover:text-[#D4AF37]'
                   }`
                 }
               >
@@ -462,7 +537,9 @@ export const Navbar = () => {
                 to="/faq"
                 className={({ isActive }) =>
                   `block px-4 py-3 rounded-xl text-base font-semibold ${
-                    isActive ? 'text-[#D4AF37] bg-[#3A321C]/40' : 'text-white hover:bg-[#171717] hover:text-[#D4AF37]'
+                    isActive
+                      ? 'text-[#D4AF37] bg-[#3A321C]/40'
+                      : 'text-white hover:bg-[#171717] hover:text-[#D4AF37]'
                   }`
                 }
               >
@@ -473,7 +550,9 @@ export const Navbar = () => {
                 to="/contact"
                 className={({ isActive }) =>
                   `block px-4 py-3 rounded-xl text-base font-semibold ${
-                    isActive ? 'text-[#D4AF37] bg-[#3A321C]/40' : 'text-white hover:bg-[#171717] hover:text-[#D4AF37]'
+                    isActive
+                      ? 'text-[#D4AF37] bg-[#3A321C]/40'
+                      : 'text-white hover:bg-[#171717] hover:text-[#D4AF37]'
                   }`
                 }
               >
@@ -481,7 +560,11 @@ export const Navbar = () => {
               </NavLink>
             </div>
 
-            <div className={`pt-6 border-t mt-6 space-y-3 pb-8 ${isHomePage ? 'border-[#3A321C]' : 'border-slate-200'}`}>
+            <div
+              className={`pt-6 border-t mt-6 space-y-3 pb-8 ${
+                isHomePage ? 'border-[#3A321C]' : 'border-slate-200'
+              }`}
+            >
               <Link
                 to="/get-a-quote"
                 className={`w-full py-3.5 text-center font-bold rounded-xl block shadow-lg ${
@@ -492,8 +575,17 @@ export const Navbar = () => {
               >
                 Get a Free Consultation
               </Link>
+
               <div className="text-center text-xs text-slate-400">
-                Call us: <a href="tel:+918000180600" className={`font-medium ${isHomePage ? 'text-[#D4AF37]' : 'text-blue-600'}`}>+91 80001 80600</a>
+                Call us:{' '}
+                <a
+                  href="tel:+918000180600"
+                  className={`font-medium ${
+                    isHomePage ? 'text-[#D4AF37]' : 'text-blue-600'
+                  }`}
+                >
+                  +91 80001 80600
+                </a>
               </div>
             </div>
           </div>
