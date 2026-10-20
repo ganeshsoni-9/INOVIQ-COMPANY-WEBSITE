@@ -1,51 +1,68 @@
-import mongoose from 'mongoose';
-import { MongoMemoryServer } from 'mongodb-memory-server';
 
-let mongod = null;
+import mongoose from 'mongoose';
+
+/**
+ * INOVIQ GLOBAL
+ * MongoDB Atlas Database Configuration
+ * Compatible with Render Production Deployment
+ */
 
 export const connectDB = async () => {
-  const uri = process.env.MONGODB_URI || process.env.MONGO_URI;
+  try {
+    // Get MongoDB connection URI
+    const mongoURI =
+      process.env.MONGODB_URI || process.env.MONGO_URI;
 
-  if (uri) {
-    try {
-      console.log('[Database] Connecting to configured MongoDB Atlas / Server...');
-      const conn = await mongoose.connect(uri, {
-        serverSelectionTimeoutMS: 8000,
-      });
-      console.log(`[Database] MongoDB Connected: ${conn.connection.host} | Database: ${conn.connection.name}`);
-      return conn;
-    } catch (err) {
-      console.error(`[Database] MongoDB Connection Failed: ${err.message}`);
-      console.error('[Database] Please verify Atlas Network Access (IP Whitelist / 0.0.0.0/0) and credentials in .env.');
-      throw err;
+    // Check MongoDB URI
+    if (!mongoURI) {
+      throw new Error(
+        'MongoDB URI missing! Please configure MONGODB_URI or MONGO_URI.'
+      );
     }
-  }
 
-  // Fallback for offline local testing only if no URI is configured
-  if (process.env.NODE_ENV !== 'production') {
-    try {
-      console.warn('[Database] WARNING: No MONGODB_URI configured. Starting temporary In-Memory MongoDB for testing...');
-      mongod = await MongoMemoryServer.create({
-        instance: {
-          dbName: 'INOVIQ-SIKAR',
-        },
-      });
-      const memoryUri = mongod.getUri();
-      const conn = await mongoose.connect(memoryUri);
-      console.log(`[Database] Temporary In-Memory MongoDB Server started: ${memoryUri}`);
-      return conn;
-    } catch (error) {
-      console.error('[Database] Failed to initialize In-Memory MongoDB:', error.message);
-      throw error;
-    }
-  }
+    console.log('[Database] Connecting to MongoDB...');
 
-  throw new Error('MONGODB_URI is not defined in environment variables.');
+    // Connect to MongoDB Atlas
+    const conn = await mongoose.connect(mongoURI, {
+      serverSelectionTimeoutMS: 10000,
+      connectTimeoutMS: 10000,
+    });
+
+    console.log('====================================');
+    console.log('INOVIQ GLOBAL DATABASE CONNECTED');
+    console.log(`Host: ${conn.connection.host}`);
+    console.log(`Database: ${conn.connection.name}`);
+    console.log('====================================');
+
+    return conn;
+
+  } catch (error) {
+    console.error('====================================');
+    console.error('MongoDB Connection Failed');
+    console.error(`Error: ${error.message}`);
+    console.error('====================================');
+
+    throw error;
+  }
 };
 
+/**
+ * Close MongoDB connection
+ */
 export const closeDB = async () => {
-  await mongoose.disconnect();
-  if (mongod) {
-    await mongod.stop();
+  try {
+    await mongoose.disconnect();
+
+    console.log(
+      '[Database] MongoDB disconnected successfully'
+    );
+
+  } catch (error) {
+    console.error(
+      '[Database] Error disconnecting MongoDB:',
+      error.message
+    );
+
+    throw error;
   }
 };
