@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ShieldCheck,
@@ -14,6 +14,7 @@ import { ServiceCard } from '../../components/ServiceCard';
 import { ServiceDetailModal } from '../../components/ServiceDetailModal';
 import { InquiryModal } from '../../components/InquiryModal';
 import { InquiryForm } from '../../components/InquiryForm';
+import { fetchServices } from '../../services/api';
 
 export const LegalBusinessSupport = () => {
   const [filterQuery, setFilterQuery] = useState('');
@@ -21,14 +22,82 @@ export const LegalBusinessSupport = () => {
   const [inquiryModalOpen, setInquiryModalOpen] = useState(false);
   const [selectedServiceTitle, setSelectedServiceTitle] = useState('');
 
-  // All 5 legal & business setup services
-  const legalServices = SERVICES_DATA.filter(
+  // Initial baseline legal services from master dataset
+  const staticLegalServices = SERVICES_DATA.filter(
     (s) => s.categoryId === 'legal-services' || s.categorySlug === 'legal-business-support'
   );
 
-  const filteredServices = legalServices.filter((s) =>
-    s.title.toLowerCase().includes(filterQuery.toLowerCase()) ||
-    s.shortDescription.toLowerCase().includes(filterQuery.toLowerCase())
+  const [legalServices, setLegalServices] = useState(staticLegalServices);
+
+  useEffect(() => {
+    fetchServices('legal-business-support')
+      .then((res) => {
+        if (res?.data && Array.isArray(res.data)) {
+          const publishedDbServices = res.data.filter((item) => item.isPublished !== false);
+
+          const baseSlugs = [
+            'logo-trademark-registration-assistance',
+            'company-registration-assistance',
+            'digital-payment-solutions',
+            'whatsapp-business-api-onboarding',
+            'domain-registration-dns-management',
+            'logo-trade-mark-registration',
+            'company-registration',
+            'whatsapp-business-api',
+            'domain-registration',
+          ];
+
+          const isBaseService = (item) => {
+            const slug = (item.slug || '').toLowerCase();
+            const title = (item.title || '').toLowerCase();
+            return (
+              baseSlugs.includes(slug) ||
+              title.includes('trademark') ||
+              title.includes('trade mark') ||
+              title.includes('company registration') ||
+              title.includes('payment solution') ||
+              title.includes('whatsapp') ||
+              title.includes('domain registration')
+            );
+          };
+
+          const newServices = publishedDbServices
+            .filter((dbItem) => !isBaseService(dbItem))
+            .map((item, idx) => ({
+              id: item._id || item.slug || `legal-dyn-${idx}`,
+              _id: item._id,
+              slug: item.slug,
+              title: item.title,
+              categoryId: 'legal-services',
+              categorySlug: 'legal-business-support',
+              categoryTitle: item.categoryName || 'Legal & Business Support',
+              shortDescription: item.shortDescription || '',
+              fullDescription: item.fullDescription || '',
+              includes:
+                item.features && item.features.length > 0
+                  ? item.features
+                  : item.benefits || [],
+              benefits: item.benefits || [],
+              image:
+                item.image ||
+                (item.slug?.startsWith('http') ? item.slug : '') ||
+                '/Specific%20Domain/special%20domain5.png',
+              iconName: item.icon || 'Layers',
+              order: item.order || (staticLegalServices.length + idx + 1),
+            }));
+
+          if (newServices.length > 0) {
+            setLegalServices([...staticLegalServices, ...newServices]);
+          }
+        }
+      })
+      .catch((err) => console.warn('Could not load dynamic legal services:', err.message));
+  }, []);
+
+  const filteredServices = legalServices.filter(
+    (s) =>
+      s.title?.toLowerCase().includes(filterQuery.toLowerCase()) ||
+      s.shortDescription?.toLowerCase().includes(filterQuery.toLowerCase())
   );
 
   const handleOpenDetails = (service) => {
@@ -128,7 +197,7 @@ export const LegalBusinessSupport = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {filteredServices.map((service) => (
                 <ServiceCard
-                  key={service.id}
+                  key={service.id || service._id || service.slug}
                   service={service}
                   onViewDetails={handleOpenDetails}
                   onEnquire={handleOpenInquiry}

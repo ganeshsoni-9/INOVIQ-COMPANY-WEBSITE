@@ -17,14 +17,25 @@ export const ServiceCard = ({
     }`}>
       <div>
         {/* Card Image Header with Category Tag */}
-        <div className="relative h-44 sm:h-48 overflow-hidden bg-slate-900">
+        <div className={`relative h-44 sm:h-48 overflow-hidden flex items-center justify-center ${
+          service.id === 'letterhead-design' ? 'bg-[#0f172a]' : 'bg-slate-900'
+        }`}>
           <img
             src={service.image}
             alt={service.title}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
+            className={`w-full h-full block ${
+              service.id === 'letterhead-design'
+                ? 'object-contain object-center'
+                : 'object-cover group-hover:scale-105 transition-transform duration-500'
+            } opacity-90 group-hover:opacity-100`}
+            style={service.imageStyle}
             loading="lazy"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+          {service.id === 'letterhead-design' ? (
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none"></div>
+          ) : (
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none"></div>
+          )}
 
           <div className="absolute top-3.5 left-3.5 flex items-center gap-2">
             <span className={`text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow ${

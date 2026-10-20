@@ -48,21 +48,49 @@ export const ServiceDetailModal = ({
         {/* Scrollable Modal Body */}
         <div className="overflow-y-auto p-6 sm:p-8 space-y-6">
           {/* Cover Image & Title Hero */}
-          <div className="relative rounded-2xl overflow-hidden border border-[#3A321C] shadow-sm bg-slate-900 h-56 sm:h-72">
+          <div className={`relative rounded-2xl overflow-hidden border border-[#3A321C] shadow-sm flex items-center justify-center bg-slate-900 ${
+            service.id === 'letterhead-design'
+              ? 'h-64 sm:h-80 p-2'
+              : 'h-56 sm:h-72'
+          }`}>
             <img
               src={service.image}
               alt={service.title}
-              className="w-full h-full object-cover opacity-90"
+              className={`w-full h-full block ${
+                service.id === 'letterhead-design'
+                  ? 'object-contain object-center'
+                  : 'object-cover opacity-90'
+              }`}
+              style={service.imageStyle}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent flex flex-col justify-end p-6">
-              <span className="text-[#D4AF37] text-xs font-semibold tracking-wider uppercase mb-1">
+            {service.id === 'letterhead-design' ? (
+              <div className="absolute top-3 left-3 bg-slate-950/80 backdrop-blur-md px-3 py-1 rounded-full border border-[#3A321C]">
+                <span className="text-[#D4AF37] text-xs font-semibold tracking-wider uppercase">
+                  Letterhead Design Preview
+                </span>
+              </div>
+            ) : (
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent flex flex-col justify-end p-6">
+                <span className="text-[#D4AF37] text-xs font-semibold tracking-wider uppercase mb-1">
+                  inoviq Service Catalog
+                </span>
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-white font-['Outfit'] leading-tight">
+                  {service.title}
+                </h2>
+              </div>
+            )}
+          </div>
+
+          {service.id === 'letterhead-design' && (
+            <div className="pt-1">
+              <span className="text-[#D4AF37] text-xs font-semibold tracking-wider uppercase mb-1 block">
                 inoviq Service Catalog
               </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-white font-['Outfit'] leading-tight">
                 {service.title}
               </h2>
             </div>
-          </div>
+          )}
 
           {/* Detailed Description */}
           <div>

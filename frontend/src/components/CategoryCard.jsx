@@ -24,7 +24,7 @@ export const CategoryCard = ({
   isHome = true,
   dark = false,
 }) => {
-  const IconComponent = iconMap[category.iconName] || Palette;
+  const IconComponent = category.iconName ? iconMap[category.iconName] : null;
 
   return (
     <div
@@ -59,13 +59,15 @@ export const CategoryCard = ({
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent"></div>
 
           {/* Floating Category Icon */}
-          <div className="absolute top-4 left-4">
-            <div
-              className={`w-12 h-12 rounded-2xl bg-gradient-to-tr ${category.accentColor} text-white flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform`}
-            >
-              <IconComponent className="w-6 h-6" />
+          {IconComponent && (
+            <div className="absolute top-4 left-4">
+              <div
+                className={`w-12 h-12 rounded-2xl bg-gradient-to-tr ${category.accentColor} text-white flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform`}
+              >
+                <IconComponent className="w-6 h-6" />
+              </div>
             </div>
-          </div>
+          )}
 
           {/* Service Count Badge */}
           <div className="absolute top-4 right-4">

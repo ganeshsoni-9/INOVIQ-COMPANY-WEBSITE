@@ -46,10 +46,7 @@ Rajasthan 332001</span>
                   info@inoviqglobal.com
                 </a>
               </div>
-              <div className="flex items-center gap-2.5">
-                <Clock className={`w-4 h-4 ${isHomePage ? 'text-[#D4AF37]' : 'text-emerald-400'} shrink-0`} />
-                <span>Mon – Sat: 9:30 AM – 7:00 PM IST</span>
-              </div>
+              
             </div>
           </div>
 
